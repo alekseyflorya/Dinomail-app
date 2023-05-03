@@ -253,15 +253,16 @@
     height: 100vh;
     .dino{
       .dino-img{
-        width: 50%;
+        width: 40%;
         height: 95vh;
       }
     }
     .dino-reversed{
       width: 100%;
       .dino-img{
-        left: -2%;
-        width: 50%;
+        left: 18%;
+        right: 0;
+        width: 40%;
         height: 95vh;
       }
     }
