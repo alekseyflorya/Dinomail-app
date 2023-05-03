@@ -131,6 +131,7 @@ export const MainPage = () => {
                 </div>
             </div>
 
+
             {toggleImg && show ?
                     <Register onClick={handleToggleImg} toggleImg={toggleImg} ref={parent}/>
                     :
