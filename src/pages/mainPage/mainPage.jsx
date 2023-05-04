@@ -10,7 +10,6 @@ import autoAnimate from "@formkit/auto-animate";
 export const MainPage = () => {
     const [toggleImg, setToggleImg] = useState(false);
     const [isLeft, setIsLeft] = useState(true);
-    const [isRight, setIsRight] = useState();
     const [angle, setAngle] = useState(0);
     const [startAngle, setStartAngle] = useState(0);
     const [currentAngle, setCurrentAngle] = useState(0);
@@ -102,13 +101,6 @@ export const MainPage = () => {
         },
         [currentAngle, startAngle, getPositionFromCenter, toggleImg]
     );
-    useEffect(() => {
-        const boxPosition = box.current.getBoundingClientRect();
-        const boxCenterX = boxPosition.left + boxPosition.width / 2;
-        const boxCenterY = boxPosition.top + boxPosition.height / 2;
-        // update the state
-        setBoxCenterPoint({ x: boxCenterX, y: boxCenterY });
-    }, []);
 
     useEffect(() => {
         window.onmousemove = mouseMoveHandler;

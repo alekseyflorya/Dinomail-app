@@ -8,7 +8,6 @@ import autoAnimate from "@formkit/auto-animate";
 import { useState, useRef, useEffect } from 'react';
 import "./style.scss";
 
-
 export const Login = ({onClick, toggleImg}) => {
     const [password, setPassword] = useState({value:"", error:""});
     const [email, setEmail] = useState({value:"", error:""});
@@ -59,6 +58,7 @@ export const Login = ({onClick, toggleImg}) => {
         }
         console.log(isError, "error")
     }
+
     const handleChangePass = (e) => {
         setPassword({value: e.target.value, error: ""});
         setisFilled(true)
