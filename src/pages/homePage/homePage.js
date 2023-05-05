@@ -1,20 +1,29 @@
+import { Sidebar } from '../../components/sidebar/Sidebar';
+import { GetStarted } from './getStarted/getStarted';
+import dropdown from "../../assets/images/shevrone.png";
+import audience from "../../assets/images/audienceicon.png";
 import './style.scss';
-import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
 
-    const navigate = useNavigate()
-
-    const handleNav = () => {
-        navigate('/', {replace:true})
-    }
-
     return(
         <div className={'homepage'}>
-            <h1>HOMEPAGE</h1>
-            <button onClick={handleNav}>
-                BACK
-            </button>
+            <div className='header'>
+                <div className='content-box'>
+                    <div className='route-status'>
+                        <img src ={audience} alt="header-audience"/>
+                        <span>Audience</span>
+                    </div>
+                    <button>
+                        <span>Add contacts</span>
+                        <img src={dropdown} alt="header-dropdown"/>
+                    </button>
+                </div>
+            </div>
+            <Sidebar/>
+            {
+                <GetStarted/>
+            }
         </div>
     )
 }

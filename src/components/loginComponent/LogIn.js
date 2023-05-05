@@ -148,8 +148,8 @@ export const Login = ({onClick, toggleImg}) => {
                         </form>
                     </div>
                     <span className={'sign-up'}>Not registered yet?
-                            <p onClick={onClick} onToggle={() => toggleImg}>Sign Up</p>
-                        </span>
+                        <p onClick={onClick} onToggle={() => toggleImg}>Sign Up</p>
+                    </span>
                 </div>
             }
         </div >
