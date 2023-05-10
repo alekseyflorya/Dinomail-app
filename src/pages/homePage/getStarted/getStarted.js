@@ -1,11 +1,27 @@
 import './style.scss';
 import circle from "../../../assets/images/CheckCircle.png";
 import ProgressBar from '../../../components/progressBar/ProgressBar';
+import dropdown from "../../../assets/images/shevrone.png";
+import audience from "../../../assets/images/audienceicon.png";
 
 export const GetStarted = () => {
     const completed = 1
     return(
         <div className='get-started'>
+            <div className='header'>
+                <div className='content-box'>
+                    <div className='route-status'>
+                        <img src ={audience} alt="header-audience"/>
+                        <span>Audience</span>
+                    </div>
+                    {/*
+                    <button onClick={handleUpload}>
+                        <span>Add contacts</span>
+                        <img src={dropdown} alt="header-dropdown"/>
+                    </button>
+                     */}
+                </div>
+            </div>
             <div className='welcome'>
                 <h1>Welcome to Dinomail!</h1>
                 <p>let's try out the full functionality of Dinomail 

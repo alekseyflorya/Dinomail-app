@@ -27,7 +27,7 @@ export const Login = ({onClick, toggleImg}) => {
 
     const navigate = useNavigate();
     const handleNav = () => {
-        navigate('/homepage', {replace:true})
+        navigate('/homepage/getstarted', {replace:true})
     }
 
     const handleSubmit = (e) => {

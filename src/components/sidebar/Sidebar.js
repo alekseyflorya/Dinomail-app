@@ -1,4 +1,7 @@
 import './style.scss';
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+
 import img1 from "../../assets/images/getstartedicon.png";
 import img2 from "../../assets/images/audienceicon.png";
 import img3 from "../../assets/images/dashboardicon.png";
@@ -15,11 +18,10 @@ import logo from "../../assets/images/logotemplate.png";
 import userimg from "../../assets/images/userdino.png";
 import dots from '../../assets/images/dots.png';
 import bell from '../../assets/images/alarmbell.png';
-import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from 'react';
 
 export const Sidebar = () => {
     const [isClicked, setIsClicked] = useState(null)
+    const [isUpload, setIsUpload] = useState(false)
 
     const handleClick = (id) => {
         setIsClicked(id)
@@ -33,8 +35,16 @@ export const Sidebar = () => {
     
     const navigate = useNavigate()
 
+    const handleUpload = () => {
+        if(isUpload){
+            setIsUpload(false)
+        } else {
+            setIsUpload(true)
+        }
+    }
+
     const handleNav = () => {
-        navigate('/', {replace:true})
+        navigate('/loginpage', {replace:true})
     }
     return(
         <div className='sidebar-wrapper'>
@@ -74,17 +84,20 @@ export const Sidebar = () => {
                     })
                 */
                     [
-                        {img: img1, title:"Get Started"},
-                        {img: img3, title:"Dashboard"},
-                        {img: img2, title:"Audience"},
-                        {img: img5, title:"Tags"},
-                        {img: img4, title:"Campaigns"},
+                        {img: img1, title:"Get Started", path: "/getstarted"},
+                        {img: img3, title:"Dashboard", path: "/dashboard"},
+                        {img: img2, title:"Audience", path: "/audience"},
+                        {img: img5, title:"Tags", path: "/tags"},
+                        {img: img4, title:"Campaigns", path: "/campaigns",}
                     ].map((item, index) => {
                         return(
-                            <button onClick={handleClick} key={index}>
+                            <Link 
+                            to={item.path}
+                            onClick={handleClick} 
+                            key={index}>
                                 <img src={item.img} alt='btn-icon'/>
                                 <span>{item.title}</span>
-                            </button>
+                            </Link>
                         )
                     })
                 }

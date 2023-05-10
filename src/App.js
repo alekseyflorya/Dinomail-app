@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {MainPage} from "./pages/mainPage/mainPage";
 import {HomePage} from "./pages/homePage/homePage";
 import {useEffect} from 'react';
+import { GetStarted } from './pages/homePage/getStarted/getStarted';
+import { Sidebar } from './components/sidebar/Sidebar';
+import { Navbar } from 'react-bootstrap';
+import { Audience } from './pages/homePage/audience/audience';
 
 function App() {
 
@@ -18,9 +22,12 @@ function App() {
   return (
       <Router>
           <div className={'App'}>
+              <Sidebar/>
               <Routes>
-                  <Route path={'/'} element={<MainPage/>}/>
-                  <Route path={'/homepage'} element={<HomePage/>}/>
+                  <Route path={'/loginpage'} element={<MainPage/>}/>
+                  <Route path={'/'} element={<HomePage/>}/>
+                  <Route path={'/getstarted'} element={<GetStarted/>}/>
+                  <Route path={'/audience'} element={<Audience/>}/>
               </Routes>
           </div>
       </Router>

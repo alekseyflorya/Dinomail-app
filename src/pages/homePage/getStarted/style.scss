@@ -1,5 +1,60 @@
 .get-started{
-    margin: 40px 0px 0px 19vw;
+    margin: 10vh 0px 0px 18vw;
+    align-self: start;
+    .header{
+        z-index: -1;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            margin: 0px 150px 0px 17vw;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                span{
+                    font-size: 16px;
+                    font-family: MacpawFixelMedium;
+                    margin: 2% 0px 0px 10px;                
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            button{
+                width: 160px;
+                height: 45px;
+                background-color: #1BBDA0;
+                border-radius: 10px;
+                border: none;
+                display: flex;
+                padding: 10px 20px;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    font-size: 14px;
+                    color: #ffffff;
+                    font-family: MacpawFixelMedium;
+                    margin-top: 1%;
+                }
+                img{
+                    width: 14px;
+                    height: 6px;
+                }
+            }
+        }
+    }
     .welcome{
         text-align: left;
         width: 450px;

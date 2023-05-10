@@ -1,0 +1,332 @@
+.audience{
+    align-self: start;
+    position: relative;
+    width: 100%;
+    .header{
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            margin: 0px 150px 0px 18.5vw;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                span{
+                    font-size: 16px;
+                    font-family: MacpawFixelMedium;
+                    margin: 2% 0px 0px 10px;                
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            button{
+                width: 160px;
+                height: 45px;
+                background-color: #1BBDA0;
+                border-radius: 10px;
+                border: none;
+                display: flex;
+                padding: 10px 20px;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    font-size: 14px;
+                    color: #ffffff;
+                    font-family: MacpawFixelMedium;
+                    margin-top: 1%;
+                }
+                img{
+                    width: 14px;
+                    height: 6px;
+                }
+            }
+        }
+    }
+    .upload-contacts{
+        width: 100%;
+        border-top: 1px solid #E8E8E8;  
+        border-bottom: 1px solid #E8E8E8;              
+        height: 170px;
+        position: absolute;
+        top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;  
+        .cards{
+            margin-left: 8%;
+            display: flex;
+            align-items: center;
+            .card1, .card2 {
+                border: 1px solid rgba(42, 43, 59, 0.3);
+                padding: 20px;
+                border-radius: 20px;
+                margin: 0 20px;
+                display: flex;
+                align-items: center;
+                .upload-des{
+                    margin-left: 10px;
+                    width: 230px;
+                    text-align: left;
+                    h4{
+                        font-size: 16px;
+                        font-family: MacPawFixelBold;
+                        margin: 0;
+                    }
+                    p{
+                        font-size: 14px;
+                        font-family: MacPawFixelMedium;
+                        margin: 0;
+                    }
+                }
+                img{
+                    width: 32px;
+                    height: 32px;
+                    align-self: start;
+                }
+            }  
+            .import{
+                border: 1px solid rgba(42, 43, 59, 0.3);
+                padding: 20px;
+                border-radius: 20px;
+                margin: 0 20px;
+                display: flex;
+                align-items: start;
+                position: relative;
+                .cooming-soon{
+                    position: absolute;
+                    align-items: center;
+                    width: 113px;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0px 20px;
+                    background: #E4E4E6;
+                    span{
+                        padding-bottom: 3%;
+                        color: #2A2B3B;
+                        font-size: 12px;
+                        font-family: MacPawFixelMedium;
+                        opacity: 0.5;
+                    }
+                }
+                .upload-des{
+                    text-align: left;
+                    margin-left: 10px;
+                    width: 230px;
+                    opacity: 0.7;
+                    h4{
+                        font-size: 16px;
+                        font-family: MacPawFixelBold;
+                        margin: 0;
+                    }
+                    p{
+                        font-size: 14px;
+                        font-family: MacPawFixelMedium;
+                        margin: 0;
+                    }
+                }
+                img{
+                    width: 32px;
+                    height: 32px;
+                    align-self: start;
+                }
+            } 
+        }  
+    }
+    .hide-upload{
+        display: none;
+    }
+    .audience-content{
+        margin: 10vh 11vw 0vw 18.5vw;
+        .audience-bars{
+            display: flex;
+            flex-direction: column;
+            .aud-title{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                h1{
+                    align-self: start;
+                    font-family: MacPawFixelBold;
+                }
+                .drafts-hide{
+                    display: none;
+                }
+            }
+            .all-contacts{
+                margin: 20px 0px 0px 0px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                align-items: center;
+                display: flex;
+                width: 95%;
+                justify-content: space-between;
+                padding: 20px 20px 20px 30px;
+                .title{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                    span{
+                        font-family: MacPawFixelMedium;
+                        font-size: 16px;
+                        margin-left: 20px;
+                    }
+                }
+                .main-stats{
+                    display: flex;
+                    align-items: center;
+                    .stat1, .stat2, .stat3{
+                        margin: 0px 30px 0px 0px;
+                        span{
+                            font-size: 10px;
+                            font-family: MacPawFixelMedium;
+                        }
+                        h3{
+                            margin: 5px 0 0;
+                            font-size: 18px;
+                            font-family: MacPawFixelBold;
+                        }
+                    }
+                    .dots{
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .bars-moved{
+            display: flex;
+            flex-direction: column;
+            margin-top: 25vh;
+            .aud-title{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                h1{
+                    align-self: start;
+                    font-family: MacPawFixelBold;
+                    font-family: MacPawFixelMedium;
+                }
+                .drafts{
+                    cursor: pointer;
+                    width: 130px;
+                    height: 45px;
+                    padding: 10px 20px;
+                    border: 1px solid #1BBDA0;
+                    border-radius: 10px;
+                    span{
+                        color: #1BBDA0;
+
+                    }
+                }
+                .drafts-hide{
+                    display: none;
+                }
+            }
+            .all-contacts{
+                margin: 20px 0px 0px 0px;
+                background-color: #ffffff;
+                border-radius: 20px;
+                align-items: center;
+                display: flex;
+                width: 95%;
+                justify-content: space-between;
+                padding: 20px 20px 20px 30px;
+                .title{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                    span{
+                        font-family: MacPawFixelMedium;
+                        font-size: 16px;
+                        margin-left: 20px;
+                    }
+                }
+                .main-stats{
+                    display: flex;
+                    align-items: center;
+                    .stat1, .stat2, .stat3{
+                        margin: 0px 30px 0px 0px;
+                        span{
+                            font-size: 10px;
+                            font-family: MacPawFixelMedium;
+                        }
+                        h3{
+                            margin: 5px 0 0;
+                            font-size: 18px;
+                            font-family: MacPawFixelBold;
+                        }
+                    }
+                    .dots{
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .audience-preview{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 30vh;
+        left: 40vw;
+        width: 520px;
+        height: 420px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 20px;
+        img{
+            max-width: 520px;
+            max-height: 173px;
+        }
+        .audience-desc{
+            h3{
+                font-family: MacPawFixelBold;
+                font-size: 24px;
+                margin: 0px 0px 10px auto;
+            }
+            p{
+                margin: 0 0 auto;
+                font-size: 16px;
+                line-height: 22px;
+                font-family: MacPawFixelMedium;
+            }
+        }
+        button{
+            background-color: #1bbda0;
+            height: 45px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            span{
+                margin-top: 2%;
+                color: #ffffff;
+                font-family: MacPawFixelMedium;
+            }
+        }
+    }
+}
