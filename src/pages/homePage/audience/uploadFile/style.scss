@@ -1,0 +1,251 @@
+.upload-wrapper{
+    position: relative;
+    width: 100%;
+    .header{
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            align-self: center;
+            max-width: 1755px;
+            margin: 0px 0px 0px 6vw;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                span{
+                    p{
+                        margin: 0;
+                        color: #1BBDA0;
+                    }
+                    display: flex;
+                    font-size: 16px;
+                    font-family: MacpawFixelMedium;
+                    margin: 2% 0px 0px 10px;                
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            button{
+                width: 160px;
+                height: 45px;
+                background-color: #1BBDA0;
+                border-radius: 10px;
+                border: none;
+                display: flex;
+                padding: 10px 20px;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    font-size: 14px;
+                    color: #ffffff;
+                    font-family: MacpawFixelMedium;
+                    margin-top: 1%;
+                }
+                img{
+                    width: 14px;
+                    height: 6px;
+                }
+            }
+        }
+    }  
+    .inner-content{
+        margin: 12vh 0 0 18vw;
+        width: 55vw;
+        height: 100%;
+        .count-upload{
+            display: flex;
+            justify-content: space-between;
+            .title-count{
+                align-items: center;
+                font-family: MacpawFixelBold;
+                display: flex;
+                span{
+                    opacity: 0.5;
+                    font-size: 24px;
+                }
+                p{
+                    margin: 0 0 0 8px;
+                    font-size: 24px;
+                }
+            }
+            .btns{
+                display: flex;
+                margin-left: 30px;
+                .transparent{
+                    width: 156px;
+                    height: 44px;
+                    background-color: transparent;
+                    border: 1px solid #1BBDA0;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #1BBDA0;
+                        font-size: 14px;
+                    }
+                }
+                .filled{
+                    cursor: pointer;
+                    width: 156px;
+                    height: 44px;
+                    background-color: #1BBDA0;
+                    border: none;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #ffffff;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .pg-bars{
+            display: flex;
+            align-items: baseline;
+            .progress-bar-upload{
+                font-family: MacpawFixelBold;
+                text-align: left;
+                width: 40%;
+                margin: 0px 10px 0px 0px;
+                display: flex;
+                flex-direction: column;
+                height: 47px;
+                h1{
+                    margin: 0;
+                    font-size: 24px;
+                }
+                .progress-wrapper{
+                    .parent-prog-bar{
+                        height: 6px!important;
+                    }
+                    .child-prog-bar{
+                        height: 6px!important;
+                    }
+                }
+            }
+            .progress-bar-segmentation{
+                font-family: MacpawFixelBold;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                height: 47px;
+                justify-content: center;
+                width: 40%;
+                margin: 0px 10px 0px 0px;
+                h1{
+                    margin: 0;
+                    font-size: 16px;
+                    margin-bottom: 4px;
+                }
+                .progress-wrapper{
+                    .parent-prog-bar{
+                        height: 6px!important;
+                    }
+                    .child-prog-bar{
+                        height: 6px!important;
+                    }
+                }
+            }
+        }
+        .uploader-box{
+            margin-top: 50px;
+            display: flex;
+            .uploader{
+                width: 675px;
+                height: 320px;
+                section{
+                    width: 100%;
+                    height: 100%;
+                    border: 1px dashed #1BBDA0;                    
+                    border-radius: 6.72269px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .dropzone{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 150px;
+                        .options-hide{
+                            display: none;
+                        }
+                        .options{
+                            margin-top: 20px;
+                            p{
+                                font-size: 18px;
+                                line-height: 15px;
+                                font-family: MacPawFixelMedium;
+                                cursor: default;
+                                a{
+                                  text-decoration: underline;
+                                  cursor: pointer;
+                                  color: #1BBDA0;
+                                }
+                            }
+                            span{
+                                margin-top: 20px;
+                                line-height: 24.84px;
+                                font-size: 18px;
+                                font-family: MacPawFixelBold;
+                            }
+                        }
+                        img{
+                            width: 68px;
+                            height: 60px;
+                        }
+                    }
+                    aside{
+                        .item-name{
+                          width: 100%;
+                          height: 53px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          p{
+                
+                          }
+                          button{
+                            width: 133px;
+                            height: 39px;
+                            border: none;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px 10px 10px 20px;
+                            align-items: center;
+                            background: #2A2B3B;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            span{
+                                color: #ffffff;
+
+                            }
+                            img{
+                              width: 16px;
+                              height: 16px;
+                            }
+                          }
+                        }
+                        .item-hide{
+                            display: none;
+                        }
+                      }
+                }
+            }
+        }
+    }
+}

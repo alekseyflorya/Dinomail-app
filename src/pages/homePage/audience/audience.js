@@ -14,12 +14,20 @@ import upload from "../../../assets/images/upload.png";
 import add from "../../../assets/images/copy.png";
 import cloud from '../../../assets/images/upload-cloud.png';
 import { Cards } from "./cards/Cards";
-import {useState} from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import {useState, useEffect} from "react";
 
 
 export const Audience = () => {
     const [isShowContacts, setisShowContacts] = useState()
     const [isUpload, setIsUpload] = useState(false)
+
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location, "location")
+    },[location])
+
     const handleUpload = () => {
         if(isUpload){
             setIsUpload(false)
@@ -31,6 +39,12 @@ export const Audience = () => {
     const handleClick = () => [
         setisShowContacts(true)
     ]
+
+    const navigate = useNavigate()
+
+    const handleNav = () => {
+        navigate('/audience/upload', {replace:true})
+    }
     return(
         <div className="audience" id="audience">
             <div className='header'>
@@ -47,7 +61,7 @@ export const Audience = () => {
             </div>
             <div className={isUpload ? 'upload-contacts' : "hide-upload"}>
                 <div className='cards'>
-                    <div className='card1'>
+                    <div className='card1' onClick={handleNav}>
                             <img src={upload} alt="upload"/>
                             <div className='upload-des'>
                                 <h4>Upload file</h4>

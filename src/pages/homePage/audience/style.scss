@@ -14,7 +14,9 @@
         justify-content: center;
         background-color: #ffffff;
         .content-box{
-            margin: 0px 150px 0px 18.5vw;
+            align-self: center;
+            max-width: 1755px;
+            margin: 0px 0px 0px 6vw;
             width: 70vw;
             display: flex;
             align-items: center;
@@ -67,16 +69,20 @@
         justify-content: center;
         background-color: #ffffff;  
         .cards{
-            margin-left: 8%;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            margin-left: 5%;
+            min-width: 49vw;
             .card1, .card2 {
+                width: 33.33%;
                 border: 1px solid rgba(42, 43, 59, 0.3);
                 padding: 20px;
                 border-radius: 20px;
-                margin: 0 20px;
+                margin: 0 15px;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
                 .upload-des{
                     margin-left: 10px;
                     width: 230px;
@@ -101,10 +107,12 @@
             .import{
                 border: 1px solid rgba(42, 43, 59, 0.3);
                 padding: 20px;
+                width: 33.33%;
                 border-radius: 20px;
-                margin: 0 20px;
+                margin: 0 15px;
+                cursor: pointer;
                 display: flex;
-                align-items: start;
+                align-items: flex-start;
                 position: relative;
                 .cooming-soon{
                     position: absolute;
@@ -214,12 +222,14 @@
         .bars-moved{
             display: flex;
             flex-direction: column;
-            margin-top: 25vh;
+            margin-top: 27vh;
             .aud-title{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
+                max-width: 98%;
+                min-width: 1015px;
                 h1{
                     align-self: start;
                     font-family: MacPawFixelBold;

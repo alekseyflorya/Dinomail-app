@@ -24,8 +24,10 @@ const ProgressBar = (props) => {
     }
   
     return (
-      <div style={containerStyles}>
-        <div style={fillerStyles}/>
+      <div className="progress-wrapper">
+        <div style={containerStyles} className="parent-prog-bar">
+          <div style={fillerStyles} className="child-prog-bar"/>
+        </div>
       </div>
     );
   };

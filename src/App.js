@@ -7,6 +7,7 @@ import { GetStarted } from './pages/homePage/getStarted/getStarted';
 import { Sidebar } from './components/sidebar/Sidebar';
 import { Navbar } from 'react-bootstrap';
 import { Audience } from './pages/homePage/audience/audience';
+import { Upload } from './pages/homePage/audience/uploadFile/Upload';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                   <Route path={'/'} element={<HomePage/>}/>
                   <Route path={'/getstarted'} element={<GetStarted/>}/>
                   <Route path={'/audience'} element={<Audience/>}/>
+                  <Route path={'/audience/:id'} element={<Upload/>}/>
               </Routes>
           </div>
       </Router>
