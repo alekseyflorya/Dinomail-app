@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react';
 import "./style.scss";
 import audience from "../../../../assets/images/audienceicon.png";
@@ -8,6 +8,12 @@ import DropFile from "./Dropzone";
 export const Upload = () => {
     let {id} = useParams()
     const [isUploaded, setIsUploaded] = useState(false)
+
+    const navigate = useNavigate()
+
+    const handleNav = () => {
+        navigate('/audience/segmentation', {replace:true})
+    }
 
     return(
         <div className="upload-wrapper" id={id}>
@@ -31,7 +37,6 @@ export const Upload = () => {
                                 <h1>Segmentation</h1>
                                 <ProgressBar bgcolor="#EDB833" completed={0} className="progress-bar"/>
                             </div>
-                            <span>{isUploaded}</span>
                         </div>
                     :
                     <div className="count-upload">
@@ -43,7 +48,11 @@ export const Upload = () => {
                             <button className="transparent">
                                 <span>Save as draft</span>
                             </button>
-                            <button className={"filled"}>
+                            <button 
+                                className={"filled"} 
+                                disabled={!isUploaded}
+                                onClick={handleNav}
+                                >
                                 <span>Next</span>
                             </button>
                         </div>
@@ -54,6 +63,18 @@ export const Upload = () => {
                 <div className="uploader-box">
                     <div className="uploader">
                         <DropFile setIsUploaded={setIsUploaded} />
+                    </div>
+                    <div className={isUploaded ? "btns" : "btns-hide"}>
+                        <button className="transparent">
+                            <span>Save as draft</span>
+                        </button>
+                        <button 
+                            className={"filled"} 
+                            disabled={!isUploaded}
+                            onClick={handleNav}
+                            >
+                            <span>Next</span>
+                        </button>
                     </div>
                 </div>
             </div>

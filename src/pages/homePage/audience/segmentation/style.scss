@@ -1,0 +1,300 @@
+.segment-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .header{
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            align-self: center;
+            max-width: 1755px;
+            margin: 0px 0px 0px 6vw;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                span{
+                    p{
+                        margin: 0;
+                        color: #1BBDA0;
+                    }
+                    display: flex;
+                    font-size: 16px;
+                    font-family: MacpawFixelMedium;
+                    margin: 2% 0px 0px 10px;                
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            button{
+                width: 160px;
+                height: 45px;
+                background-color: #1BBDA0;
+                border-radius: 10px;
+                border: none;
+                display: flex;
+                padding: 10px 20px;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    font-size: 14px;
+                    color: #ffffff;
+                    font-family: MacpawFixelMedium;
+                    margin-top: 1%;
+                }
+                img{
+                    width: 14px;
+                    height: 6px;
+                }
+            }
+        }
+    }
+    .inner-box{
+        margin: 12vh 0 0 18vw;
+        width: 55vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 1030px;
+        .upload-group{
+            display: flex;
+            align-self: flex-end;
+            .back{
+                width: 120px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 44px;
+                background-color: transparent;
+                border: 1px solid #1BBDA0;
+                border-radius: 10px;
+                cursor: pointer;
+                img{
+                    width: 24px;
+                    height: 24px;
+                }
+                span{
+                    margin: 2% 10px 0px 0px;
+                    font-family: MacPawFixelMedium;
+                    color: #1BBDA0;
+                    font-size: 14px;
+                }
+            }
+            .save-as-draft{
+                width: 156px;
+                height: 44px;
+                background-color: transparent;
+                border: 1px solid #1BBDA0;
+                border-radius: 10px;
+                cursor: pointer;
+                margin: 0 0 0 10px;
+                span{
+                    font-family: MacPawFixelMedium;
+                    color: #1BBDA0;
+                    font-size: 14px;
+                }
+            }
+            .continue{
+                cursor: pointer;
+                width: 156px;
+                height: 44px;
+                background-color: #1BBDA0;
+                border: none;
+                border-radius: 10px;
+                margin-left: 10px;
+                span{
+                    font-family: MacPawFixelMedium;
+                    color: #ffffff;
+                    font-size: 14px;
+                }
+            }:disabled{
+                opacity: 0.5;
+                cursor: default;
+            }
+        } 
+        .pg-bars{
+            width: 100%;
+            min-width: 1030px;
+            display: flex;
+            align-items: baseline;
+            margin: 20px 0;
+            .progress-bar-upload{
+                font-family: MacpawFixelBold;
+                text-align: left;
+                width: 50%;
+                margin: 0px 10px 0px 0px;
+                display: flex;
+                flex-direction: column;
+                height: 47px;
+                h1{
+                    margin: 0 0 4px;
+                    font-size: 16px;
+                    opacity: 0.5;
+                }
+                .progress-wrapper{
+                    .parent-prog-bar{
+                        height: 6px!important;
+                    }
+                    .child-prog-bar{
+                        height: 6px!important;
+                    }
+                }
+            }
+            .progress-bar-segmentation{
+                font-family: MacpawFixelBold;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                height: 47px;
+                justify-content: center;
+                width: 50%;
+                margin: 0px 10px 0px 0px;
+                h1{
+                    margin: 0;
+                    font-size: 24px;
+                }
+                .progress-wrapper{
+                    .parent-prog-bar{
+                        height: 6px!important;
+                    }
+                    .child-prog-bar{
+                        height: 6px!important;
+                    }
+                }
+            }
+        }
+        .segm-group{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .tips{
+                text-align: left;
+                font-size: 14px;
+                align-items: flex-start;
+                max-width: 440px;
+                ul{
+                    padding: 0 0 0 5%;
+                    li{
+                        line-height: 19.32px;
+                        opacity: 0.7;
+                    }
+                }
+            }
+            .upload-group{
+                align-self: center;
+                button{
+                    cursor: pointer;
+                }:disabled{
+                    opacity: 0.5;
+                    cursor: default;
+                }
+            }
+        }
+        .selection{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            align-items: flex-start;
+            .dropdown{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                label{
+                    font-family: MacpawFixelMedium;
+                    margin: 0px 0px 10px 20px;
+                    align-self: flex-start!important;
+                }
+            }
+            .tags{
+                display: flex;
+                flex-direction: column;
+                max-width: 440px;
+                .container {
+                    display: flex;
+                    overflow-x: scroll;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 15px 20px;
+                    border: none;
+                    border-radius: 20px;
+                    align-items: center;
+                    background-color: #fff;
+                    input{
+                        padding: 5px 0!important;
+                        width: 100%;
+                        min-width: 50%;
+                        right: 0;
+                        align-self: flex-start!important;
+                        font-family: MacpawFixelMedium;
+                    }
+                    .container-input {
+                        border: none;
+                        border-radius: none;
+                        padding: 0;
+                        outline: none;
+                        font-size: 14px;
+                    }
+                    .tag {
+                        display: flex;
+                        align-items: center;
+                        margin: 0px 0;
+                        margin-right: 5px;
+                        padding: 5px 10px;    
+                        max-width: 100%;
+                        border-radius: 10px;
+                        background-color: #2A2B3B;
+                        white-space: nowrap;
+                        color: white;
+                        img{
+                            display: flex;
+                            border: none;
+                            background-color: unset;
+                            cursor: pointer;
+                            color: white;
+                            width: 16px;
+                            height: 16px;
+                        }
+                        span{
+                            line-height: 19.2px;
+                            margin-bottom: 3%;
+                        }
+                    }
+                }
+                label{
+                    text-align: left;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin: 0px 0 10px 20px;
+                    font-family: MacpawFixelMedium;
+                }
+                p{
+                    margin: 10px 0 10px 20px;
+                    font-family: MacpawFixelMedium;
+                    max-width: 440px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    text-align: left;
+                    span{
+                        cursor: pointer;
+                        color: #1BBDA0;
+                    }
+                }
+            }
+        }
+    }
+}

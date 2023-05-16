@@ -8,6 +8,7 @@ import { Sidebar } from './components/sidebar/Sidebar';
 import { Navbar } from 'react-bootstrap';
 import { Audience } from './pages/homePage/audience/audience';
 import { Upload } from './pages/homePage/audience/uploadFile/Upload';
+import { Segmentation } from './pages/homePage/audience/segmentation/Segmentation';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                   <Route path={'/getstarted'} element={<GetStarted/>}/>
                   <Route path={'/audience'} element={<Audience/>}/>
                   <Route path={'/audience/:id'} element={<Upload/>}/>
+                  <Route path={'/audience/segmentation'} element={<Segmentation/>}/>
               </Routes>
           </div>
       </Router>
