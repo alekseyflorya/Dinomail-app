@@ -8,52 +8,29 @@ import chat from "../../../../assets/images/chat.png";
 import magnet from "../../../../assets/images/magnet.png";
 import eye from "../../../../assets/images/closedeye.png";
 import team from "../../../../assets/images/team.png";
+import closeblack from "../../../../assets/images/xblack.png";
 import Dropdown from './dropdown/dropdown';
 import { useState } from 'react';
 import './style.scss';
+import { TagsInput } from "react-tag-input-component";
 import close from "../../../../assets/images/xmark.png";
+import {Tags} from './tagInput/TagInput';
 
 export const Segmentation = () => {
-    const [input, setInput] = useState('');
     const [tags, setTags] = useState([]);
-    const [isKeyReleased, setIsKeyReleased] = useState(false);
+    const [selected, setSelected] = useState([]);
+    const [isOpenModal, setIsOpenModal] = useState()
+    const [isSelectedDropdown, setIsSelectedDropdown] = useState(false)
 
-    const onKeyDown = (e) => {
-        const { key } = e;
-        const trimmedInput = input.trim();
-        if (key === ','  && trimmedInput.length && !tags.includes(trimmedInput)) {
-          e.preventDefault();
-          setTags(prevState => [...prevState, trimmedInput]);
-          setInput('');
-        }
-        if (key === 'Enter'  && trimmedInput.length && !tags.includes(trimmedInput)) {
-            e.preventDefault();
-            setTags(prevState => [...prevState, trimmedInput]);
-            setInput('');
-        }
-        if (key === "Backspace" && !input.length && tags.length && isKeyReleased) {
-          const tagsCopy = [...tags];
-          const poppedTag = tagsCopy.pop();
-          e.preventDefault();
-          setTags(tagsCopy);
-          setInput(poppedTag);
-        }
-        setIsKeyReleased(false);
-    };
     console.log(tags, "tags")
-      
-    const onKeyUp = () => {
-        setIsKeyReleased(true);
-    }
-
-    const onChange = (e) => {
-        const { value } = e.target;
-        setInput(value);
-    };
 
     const handleAddSuggestion = (item) => {
-        setTags(prevState => [...prevState, item.target.outerText.slice(0, -2)])
+        setSelected(prevState => [...prevState, item.target.outerText.slice(0, -2)])
         console.log(item, "item")
+    }
+
+    const handleOpenModal = () => {
+        setIsOpenModal(true)
     }
 
     const deleteTag = (index) => {
@@ -61,6 +38,7 @@ export const Segmentation = () => {
     }
     let {id} = useParams()
     const navigate = useNavigate()
+    console.log(isSelectedDropdown, "dropdown")
 
     const options = [
         { img: sub, label: "Subscribers", value: 1},
@@ -73,6 +51,8 @@ export const Segmentation = () => {
     const handleNav = () => {
         navigate('/audience/upload', {replace:true})
     }
+
+    console.log(options, "options")
 
     return(
         <div className="segment-wrapper" id={id}>
@@ -128,46 +108,58 @@ export const Segmentation = () => {
                         <button className='save-as-draft'>
                             <span>Save as draft</span>
                         </button>
-                        <button className='continue'>
+                        <button className='continue' 
+                                disabled={selected.length < 1 | !isSelectedDropdown}
+                                onClick={selected.length >=1 ? handleOpenModal : null}>
                             <span>Continue</span>
                         </button>
+                    </div>
+                </div>
+                <div className={isOpenModal ? 'modal' : "modal-hide"}>
+                    <div className='modal-window'>
+                        <div className='modal-title'>
+                            <h1>238 contacts</h1>
+                            <img src={closeblack} alt="xmark" onClick={() => {setIsOpenModal(false)}}/>
+                        </div>
+                        <p>Tags:</p>
+                        <p>Group:</p>
+                        <div className='data-table'>
+                            <div className='table-title'>
+                                <span>Email</span>
+                                <span className='fname'>First name</span>
+                                <span className='lname'>Last name</span>
+                                <span>Address line</span>
+                            </div>
+                            <hr/>
+                            <div className='table-content'>
+                                <div className='contact'>
+                                    <span>fasdfgsf@asf.asdf</span>
+                                    <span>Mike</span>
+                                    <span>Morris</span>
+                                    <span>4123 adas ad ar</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div className='btns-group'>
+                                <button className='btn1' onClick={() => setIsOpenModal(false)}>
+                                    <span>Cancel</span>
+                                </button>
+                                <button className='btn2' onClick={() => navigate('/audience/')}>
+                                    <span>Confirm</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='selection'>
                     <div className='tags'>
                         <label>Search for or create tags</label>
-                        <div className="container">
-                            {tags.map((tag, index) => (
-                                <div className="tag">
-                                    <span>{tag}</span>
-                                        <img src={close} alt='x' onClick={() => deleteTag(index)}/>
-                                </div>
-                            ))}
-                            <input
-                                className='container-input'
-                                value={input}
-                                placeholder={tags.length >= 1 ? "" : "Start typing to add a custom tag"}
-                                onKeyDown={onKeyDown}
-                                onKeyUp={onKeyUp}
-                                onChange={onChange}
-                            />
-                        </div>
-                        {/*
-                        <input
-                            type='text'
-                            placeholder='Start typing to add custom tag'
-                            <span> customer, </span>
-                            <span>passive, </span>
-                            <span>active, </span>
-                            <span>user, </span>
-                            <span>important, </span>
-                            <span>general, </span>
-                            <span>shared, </span>
-                            <span>banned, </span>
-                            <span>subscriber, </span>
-                            <span>potential</span>
+                        <TagsInput
+                            value={selected}
+                            onChange={setSelected}
+                            name="fruits"
+                            placeHolder={selected.length >=1 ? "" : "Start typing to add a custom tag"}
                         />
-                        */}
                         <p>Suggested tags:
                             {
                                 [
@@ -197,7 +189,7 @@ export const Segmentation = () => {
                         <label>Select group</label>
                         <Dropdown 
                             options={options}
-                            onChange={(value) => console.log(value.img)}
+                            onChange={() => {setIsSelectedDropdown(true)}}
                             placeHolder={"Not selected yet"}
                         />
                     </div>

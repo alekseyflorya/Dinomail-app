@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import cloud from "../../../../assets/images/uploadIcon.png";
 import cloudUpload from "../../../../assets/images/getUpload.png";
@@ -7,6 +7,7 @@ import "./style.scss";
 
 function DropFile({setIsUploaded}) {
   const [myFile, setMyFile] = useState(null)
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   const {getRootProps, getInputProps} = useDropzone({
     onDrop: acceptedFiles => {
@@ -18,7 +19,8 @@ function DropFile({setIsUploaded}) {
     setIsUploaded(!!myFile?.length)
   }, [myFile])
 
-  const removeFile = () => {
+  const handleRemove = () => {
+    setIsOpenModal(false)
     setMyFile(null)
   }
   
@@ -26,6 +28,20 @@ function DropFile({setIsUploaded}) {
   
   return (
     <section className={"container"}>
+        <div className={isOpenModal ? "modal-upload" : 'modal-hide'}>
+            <div className="modal-window">
+              <h1>Are you sure you want to delete this file</h1>
+              <span>This file will be deleted irretrievably</span>
+              <div className="btns">
+                <button onClick={() => {setIsOpenModal(false)}} className="bnt1">
+                  <span>Continue</span>
+                </button>
+                <button className="bnt2" onClick={handleRemove}>
+                  <span>Yes, delete</span>
+                </button>
+              </div>
+          </div>
+        </div>
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()}/>
         <img src={myFile ? cloud : cloudUpload} alt={'cloud'}/>
@@ -34,12 +50,13 @@ function DropFile({setIsUploaded}) {
             <p>You can drag and drop the file or <a>Browse</a></p>
         </div>
       </div>
+      
       <aside>
         <div className={myFile ? 'item-name' : "item-hide"}>
             <div>
                 <button>
                     <span>{myFile}</span>
-                    <img src={deleteFile} alt={'x'} onClick={removeFile}/>
+                    <img src={deleteFile} alt={'x'} onClick={() => {setIsOpenModal(true)}}/>
                 </button>
             </div>
         </div>

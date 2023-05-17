@@ -219,6 +219,75 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    position: relative; 
+                    .modal-hide{
+                        display: none;
+                    }
+                    .modal-upload{
+                        position: fixed;
+                        background: rgba(0, 0, 0, 0.8);
+                        backdrop-filter: blur(20px);
+                        z-index: 2;
+                        width: 100vw;
+                        height: 100vh;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        .modal-window{
+                            background-color: #ffffff;
+                            width: 28vw;
+                            height: 16vh;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            padding: 20px;
+                            border-radius: 10px;
+                            h1{
+                                margin: 0 0 0px;
+                                align-self: center;
+                                max-width: 258px;
+                                font-size: 20px;
+                                font-family: MacpawFixelBold;
+                            }
+                            span{
+                                font-family: MacpawFixelMedium;
+                                font-size: 12px;
+                            }
+                            .btns{
+                                display: flex;
+                                justify-content: space-evenly;
+                                button{
+                                    width: 161px;
+                                    height: 42px;
+                                    font-family: MacPawFixelMedium;
+                                    font-size: 14px;
+                                }
+                                .bnt1{
+                                    border: 1px solid #1BBDA0;
+                                    border-radius: 10px;                    
+                                    background-color: transparent;
+                                    span{
+                                        color: #1BBDA0;
+                                        font-size: 14px;
+                                    }
+                                }
+                                .bnt2{
+                                    border: none;
+                                    border-radius: 10px;                    
+                                    background-color: #FF5656;
+                                    span{
+                                        color: #ffffff;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }  
                     .dropzone{
                         display: flex;
                         flex-direction: column;

@@ -1,5 +1,5 @@
-import { useParams, useLocation, useNavigate } from "react-router-dom";
-import {useState, useEffect} from 'react';
+import { useParams, useNavigate } from "react-router-dom";
+import {useState} from 'react';
 import "./style.scss";
 import audience from "../../../../assets/images/audienceicon.png";
 import ProgressBar from "../../../../components/progressBar/ProgressBar";
@@ -58,11 +58,9 @@ export const Upload = () => {
                         </div>
                     </div>
                 }
-                {/*
-                */}
                 <div className="uploader-box">
                     <div className="uploader">
-                        <DropFile setIsUploaded={setIsUploaded} />
+                        <DropFile setIsUploaded={setIsUploaded}/>
                     </div>
                     <div className={isUploaded ? "btns" : "btns-hide"}>
                         <button className="transparent">

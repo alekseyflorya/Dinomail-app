@@ -203,6 +203,99 @@
                 }
             }
         }
+        .modal{
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            z-index: 99;
+            height: 100vh;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            .modal-window{
+                width: 50vw;
+                position: relative;
+                padding: 30px 20px;
+                height: 57vh;
+                border-radius: 20px;
+                background-color: #ffffff;
+                text-align: left;
+                .modal-title{
+                    display: flex;
+                    justify-content: space-between;
+                    h1{
+                        margin: 0;
+                        font-family: MacpawFixelBold;
+                        font-size: 24px;
+                    }
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                .data-table{
+                    font-family: MacpawFixelMedium;
+                    .table-title{
+                        display: flex;
+                        justify-content: space-between;
+                        color: #2A2B3B;
+                        font-size: 12px;
+                        opacity: 0.5;
+                        .fname{
+                            margin-left: 15%;
+                        }
+                        .lname{
+                            margin-right: 10%;
+                        }
+                    }
+                    hr{
+                        color: rgba(42, 43, 59, 0.1);;
+                    }
+                    .table-content{
+                        margin-top: 10px;
+                        .contact{
+                            display: flex;
+                            justify-content: space-between;
+                            font-family: MacpawFixelMedium;
+                            font-size: 12px;
+                        }
+                    }   
+                    .btns-group{
+                        bottom: 5%;
+                        right: 5%;
+                        position: absolute;
+                        button{
+                            padding: 10px 20px;
+                            width: 146px;
+                            font-size: 14px;
+                            font-family: MacpawFixelMedium;
+                            border: none;
+                            border-radius: 10px;
+                            cursor: pointer;
+                        }
+                        .btn1{
+                            margin-right: 10px;
+                            background: rgba(42, 43, 59, 0.05);
+                        }
+                        .btn2{
+                            background: #1BBDA0;
+                            span{
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .modal-hide{
+            display: none;
+        }
         .selection{
             margin-top: 20px;
             display: flex;
@@ -224,7 +317,57 @@
                 display: flex;
                 flex-direction: column;
                 max-width: 440px;
-                .container {
+                .MuiStack-root{
+                    .MuiFormControl-root{
+                        .MuiInputBase-root{
+                            padding: 20px;
+                            background-color: #ffffff;
+                            input{
+                                padding: 0;
+                            }
+                            .MuiAutocomplete-endAdornment{
+                                display: none;
+                            }
+                            .MuiButtonBase-root{
+                                background-color: #2A2B3B;
+                                span{
+                                    color: #ffffff;
+                                }
+                                svg{
+                                    color: #ffffff;
+                                }
+                            }
+                        }::after{
+                            border-bottom: none;
+                        }
+                    }
+                }
+                label{
+                    text-align: left;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin: 0px 0 10px 20px;
+                    font-family: MacpawFixelMedium;
+                }
+                p{
+                    margin: 10px 0 10px 20px;
+                    font-family: MacpawFixelMedium;
+                    max-width: 440px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    text-align: left;
+                    span{
+                        cursor: pointer;
+                        color: #1BBDA0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+    .container {
                     display: flex;
                     overflow-x: scroll;
                     width: 100%;
@@ -274,27 +417,4 @@
                             margin-bottom: 3%;
                         }
                     }
-                }
-                label{
-                    text-align: left;
-                    font-size: 16px;
-                    line-height: 22px;
-                    margin: 0px 0 10px 20px;
-                    font-family: MacpawFixelMedium;
-                }
-                p{
-                    margin: 10px 0 10px 20px;
-                    font-family: MacpawFixelMedium;
-                    max-width: 440px;
-                    font-size: 14px;
-                    line-height: 22px;
-                    text-align: left;
-                    span{
-                        cursor: pointer;
-                        color: #1BBDA0;
-                    }
-                }
-            }
-        }
-    }
-}
+                }*/
