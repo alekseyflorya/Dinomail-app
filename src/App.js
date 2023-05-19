@@ -9,6 +9,8 @@ import { Navbar } from 'react-bootstrap';
 import { Audience } from './pages/homePage/audience/audience';
 import { Upload } from './pages/homePage/audience/uploadFile/Upload';
 import { Segmentation } from './pages/homePage/audience/segmentation/Segmentation';
+import { UploadManually } from './pages/homePage/audience/uploadManually/ManualUpload';
+import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
 
 function App() {
 
@@ -31,7 +33,9 @@ function App() {
                   <Route path={'/getstarted'} element={<GetStarted/>}/>
                   <Route path={'/audience'} element={<Audience/>}/>
                   <Route path={'/audience/:id'} element={<Upload/>}/>
+                  <Route path={'/audience/uploadmanually'} element={<UploadManually/>}/>
                   <Route path={'/audience/segmentation'} element={<Segmentation/>}/>
+                  <Route path={'/audience/manualsegment'} element={<SegmentManually/>}/>
               </Routes>
           </div>
       </Router>

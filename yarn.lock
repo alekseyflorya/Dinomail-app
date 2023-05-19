@@ -10916,6 +10916,11 @@ react-tag-input-component@^2.0.2:
   resolved "https://registry.yarnpkg.com/react-tag-input-component/-/react-tag-input-component-2.0.2.tgz#f62f013c6a535141dd1c6c3a88858223170150f1"
   integrity sha512-dydI9luVwwv9vrjE5u1TTnkcOVkOVL6mhFti8r6hLi78V2F2EKWQOLptURz79UYbDHLSk6tnbvGl8FE+sMpADg==
 
+react-textarea-counter@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-textarea-counter/-/react-textarea-counter-1.0.3.tgz#60da7311ef09f293301c32378b9742733a8c377e"
+  integrity sha512-mm1XjxQ2xckQttfrK9RB9NTtHir1RW61D3IKuniL9DlhtBeZN3hAUC86nBfmyhz46sE3XclKvLs5pRTCSCsBSA==
+
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"

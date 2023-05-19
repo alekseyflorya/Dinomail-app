@@ -45,6 +45,10 @@ export const Audience = () => {
     const handleNav = () => {
         navigate('/audience/upload', {replace:true})
     }
+
+    const handleNavManualAdd = () => {
+        navigate('/audience/uploadmanually', {replace:true})
+    }
     return(
         <div className="audience" id="audience">
             <div className='header'>
@@ -68,7 +72,7 @@ export const Audience = () => {
                                 <p>Import contacts from a CSV or tab-delimited TXT file More info</p>
                             </div>
                     </div>
-                    <div className='card2'>
+                    <div className='card2' onClick={handleNavManualAdd}>
                             <img src={add} alt="upload"/>
                             <div className='upload-des'>
                                 <h4>Add manually</h4>
