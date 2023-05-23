@@ -48,28 +48,9 @@ export const UploadManually = () => {
                 <div className='content-box'>
                     <div className='route-status'>
                         <img src={audience} alt="header-audience"/>
-                        <span>Audience / <p>Add contacts manually</p></span>
+                        <span>Audience /<p>Add contacts manually</p></span>
                     </div>
-                </div>
-            </div>
-            <div className="inner-content">
-                        <div className="pg-bars">
-                            <div className="progress-bar-upload">
-                                <h1>Adding contacts</h1>
-                                <ProgressBar bgcolor="#EDB833" completed={100} className="progress-bar"/>
-                            </div>
-                            <div className="progress-bar-segmentation">
-                                <h1>Segmentation</h1>
-                                <ProgressBar bgcolor="#EDB833" completed={0} className="progress-bar"/>
-                            </div>
-                        </div>
-                    
-                    <div className="count-upload">
-                        <div className="title-count">
-                            <p>Just copy your contact list as text and paste it into text field</p>
-                            <span>4 contacts added</span>
-                        </div>
-                        <div className="btns">
+                    <div className="btns">
                             <button className="transparent">
                                 <span>Save as draft</span>
                             </button>
@@ -80,6 +61,20 @@ export const UploadManually = () => {
                                 >
                                 <span>Next</span>
                             </button>
+                    </div>
+                </div>
+            </div>
+            <div className="pg-bars">
+                <div className="progress-bar-upload">
+                    <ProgressBar bgcolor="#1BBDA0" completed={50} className="progress-bar"/>
+                </div>
+            </div>
+            <div className="inner-content">    
+                    <div className="count-upload">
+                        <div className="title-count">
+                            <p className="main-text"><span>1/2</span> Adding contacts</p>
+                            <p>Just copy your contact list as text and paste it into text field</p>
+                            <span>4 contacts added</span>
                         </div>
                     </div>
                     <div className='area-wrapper'>

@@ -62,46 +62,9 @@ export const Segmentation = () => {
                         <img src={audience} alt="header-audience"/>
                         <span>Audience / <p>Add contacts via file</p></span>
                     </div>
-                </div>
-            </div>
-            <div className='inner-box'>
-                <div className='upload-group'>
-                    <button className='back' onClick={handleNav}>
-                        <img src={arrow}/>
-                        <span>Back</span>
-                    </button>
-                    <button className='save-as-draft'>
-                        <span>Save as draft</span>
-                    </button>
-                    <button className='continue'>
-                        <span>Continue</span>
-                    </button>
-                </div>
-                <div className="pg-bars">
-                    <div className="progress-bar-upload">
-                        <h1>Upload the file</h1>
-                        <ProgressBar bgcolor="#EDB833" completed={100} className="progress-bar"/>
-                    </div>
-                    <div className="progress-bar-segmentation">
-                        <h1>Segmentation</h1>
-                        <ProgressBar bgcolor="#EDB833" completed={100} className="progress-bar"/>
-                    </div>
-                </div>
-                <div className='segm-group'>
-                    <div className='tips'>
-                        <ul>
-                            <li>
-                                Tagging will help you sort and search
-                                your contacts by categories and criteria more conveniently
-                            </li>
-                            <li>
-                                You must add some category for your contacts
-                            </li>
-                        </ul>
-                    </div>
                     <div className='upload-group'>
                         {/*REPEATED CLASSNAME*/}
-                        <button className='back'>
+                        <button className='back' onClick={handleNav}>
                             <img src={arrow}/>
                             <span>Back</span>
                         </button>
@@ -115,8 +78,32 @@ export const Segmentation = () => {
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className="pg-bars">
+                    <div className="progress-bar-upload">
+                        <ProgressBar bgcolor="#1BBDA0" completed={100} className="progress-bar"/>
+                    </div>
+            </div>
+            <div className='inner-box'>
+                <div className='segm-title'>
+                    <h1 className='count'>2/2</h1>
+                    <h1>Segmentation</h1>
+                </div>
+                <div className='segm-group'>
+                    <div className='tips'>
+                        <ul>
+                            <li>
+                                Tagging will help you sort and search
+                                your contacts by categories and criteria more conveniently
+                            </li>
+                            <li>
+                                You must add some category for your contacts
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div className={isOpenModal ? 'modal' : "modal-hide"}>
-                    <div className='modal-window'>
+                    <div className='modal-window-segment'>
                         <div className='modal-title'>
                             <h1>238 contacts</h1>
                             <img src={closeblack} alt="xmark" onClick={() => {setIsOpenModal(false)}}/>

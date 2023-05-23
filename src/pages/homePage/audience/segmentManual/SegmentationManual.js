@@ -1,6 +1,6 @@
 import './style.scss';
 import arrow from "../../../../assets/images/leftArrGreen.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useFetcher, useNavigate, useParams } from "react-router-dom";
 import audience from "../../../../assets/images/audienceicon.png";
 import ProgressBar from "../../../../components/progressBar/ProgressBar";
 import sub from "../../../../assets/images/subs.png";
@@ -10,7 +10,7 @@ import eye from "../../../../assets/images/closedeye.png";
 import team from "../../../../assets/images/team.png";
 import closeblack from "../../../../assets/images/xblack.png";
 import Dropdown from './dropdown/dropdown';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.scss';
 import { TagsInput } from "react-tag-input-component";
 import close from "../../../../assets/images/xmark.png";
@@ -32,6 +32,12 @@ export const SegmentManually = () => {
     const handleOpenModal = () => {
         setIsOpenModal(true)
     }
+
+    useEffect(() => {
+
+    }, {
+
+    })
 
     const deleteTag = (index) => {
         setTags(prevState => prevState.filter((tag, i) => i !== index))
@@ -64,16 +70,15 @@ export const SegmentManually = () => {
                     </div>
                 </div>
             </div>
+            <div className="pg-bars">
+                        <div className="progress-bar-upload">
+                            <ProgressBar bgcolor="#1BBDA0" completed={100} className="progress-bar"/>
+                        </div>
+                    </div>
             <div className='inner-box'>
-                <div className="pg-bars">
-                    <div className="progress-bar-upload">
-                        <h1>Upload the file</h1>
-                        <ProgressBar bgcolor="#EDB833" completed={100} className="progress-bar"/>
-                    </div>
-                    <div className="progress-bar-segmentation">
-                        <h1>Segmentation</h1>
-                        <ProgressBar bgcolor="#EDB833" completed={100} className="progress-bar"/>
-                    </div>
+                <div className='segm-title-manual'>
+                    <h1 className='count'>2/2</h1>
+                    <h1>Segmentation</h1>
                 </div>
                 <div className='segm-group'>
                     <div className='tips'>
