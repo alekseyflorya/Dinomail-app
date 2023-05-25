@@ -30,11 +30,14 @@ export const UploadManually = () => {
             });
         }
         addAutoResize()  
+    }, [])   
+
+    {/*
         fetch("/signin?email=stopup.mail@gmail.com&password=123456", { method: "post" })
             .then(response => response.text())
             .then(result => console.log(result, "result"))
             .catch(error => console.log('error', error));
-    }, [])   
+    */}
 
     const handleNav = () => {
         navigate('/audience/manualsegment', {replace:true})
@@ -87,7 +90,14 @@ export const UploadManually = () => {
                             onChange={handleChangeText}
                         />
                     </div>
-                    <div className="text-field">
+            </div>
+        </div>
+    )
+}
+
+{/*
+
+<div className="text-field">
                         <div className="vl">
                             {Array.from(Array(isRow).keys()).map((item, index) => {
                                 return(
@@ -103,7 +113,4 @@ export const UploadManually = () => {
                             maxLength={1000000000000}
                         ></textarea>
                     </div>
-            </div>
-        </div>
-    )
-}
+*/}
