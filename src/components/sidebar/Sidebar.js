@@ -30,7 +30,6 @@ export const Sidebar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        console.log(location, "location")
     },[location])
     
     const navigate = useNavigate()
