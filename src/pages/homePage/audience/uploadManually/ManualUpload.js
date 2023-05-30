@@ -3,9 +3,7 @@ import {useEffect, useState} from 'react';
 import "./style.scss";
 import audience from "../../../../assets/images/audienceicon.png";
 import ProgressBar from "../../../../components/progressBar/ProgressBar";
-import TextareaCounter from 'react-textarea-counter';
-import { LimitedTextarea } from "./textarea";
-import closeblack from "../../../../assets/images/xblack.png";
+
 
 export const UploadManually = () => {
     const [isText, setIsText] = useState()
@@ -43,6 +41,10 @@ export const UploadManually = () => {
         navigate('/audience/manualsegment', {replace:true})
     }
 
+    const handleNavBack = () => {
+        navigate('/audience/', {replace:true})
+    }
+
     const handleChangeText = (e) => {
         setIsText(e.target.value);
         setIsRow(e.target.value?.split("\n")?.length)
@@ -55,7 +57,10 @@ export const UploadManually = () => {
                 <div className='content-box'>
                     <div className='route-status'>
                         <img src={audience} alt="header-audience"/>
-                        <span>Audience /<p>Add contacts manually</p></span>
+                        <div className="manual-routes">
+                            <span onClick={handleNavBack}>Audience /</span>
+                            <p>Add contacts manually</p>
+                        </div>
                     </div>
                     <div className="btns">
                             <button className="transparent">

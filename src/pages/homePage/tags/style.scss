@@ -1,0 +1,159 @@
+.tags-wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    .header{
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            align-self: center;
+            max-width: 1755px;
+            margin: 0px 0px 0px 60px;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                .manual-routes{
+                    display: flex;
+                    align-items: baseline;
+                    span{
+                        display: flex;
+                        cursor: pointer;
+                        font-size: 16px;
+                        font-family: MacpawFixelMedium;
+                        margin: 2% 0px 0px 10px;                
+                    }
+                    p{
+                        margin: 0 10px;
+                        color: #1BBDA0;
+                    }
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            .btns{
+                display: flex;
+                margin-left: 30px;
+                .transparent{
+                    width: 156px;
+                    height: 44px;
+                    background-color: transparent;
+                    border: 1px solid #1BBDA0;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #1BBDA0;
+                        font-size: 14px;
+                    }
+                }
+                .back{
+                    display: flex;
+                    width: 156px;
+                    height: 44px;
+                    background-color: transparent;
+                    border: 1px solid #1BBDA0;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #1BBDA0;
+                        font-size: 14px;
+                    }
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                .filled{
+                    cursor: pointer;
+                    width: 156px;
+                    height: 44px;
+                    background-color: #1BBDA0;
+                    border: none;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #ffffff;
+                        font-size: 14px;
+                    }
+                }:disabled{
+                    opacity: 0.5;
+                    cursor: default;
+                }
+            }
+        }
+    }  
+    .tags-content{
+        margin: 90px 0 0 14vw ;
+        .navigation{
+            display: flex;
+            padding: 0 60px;
+            flex-direction: column;
+            border-bottom: 1px solid #E8E8E8;
+            h1{
+                align-self: flex-start;
+            }
+            .filter-component{
+                display: flex;
+                flex-direction: column;
+                .description{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    p{
+                        width: 400px;
+                        text-align: left;
+                        font-size: 14px;
+                    }
+                    .search-input{
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        margin: 0 11.9vw 0 0px;
+                        input{
+                            align-items: center;
+                            display: flex;
+                            justify-content: center;
+                            padding: 10px 20px 10px 50px;
+                            height: 16px;
+                            width: 280px;
+                            background: rgba(42, 43, 59, 0.05);
+                            border-radius: 10px;
+                            border: none;
+                        }::placeholder{
+                            display: flex;
+                            margin: 10px 0 0 0;
+                        }
+                        img{
+                            left: 5%;
+                            top: 25%;
+                            position: absolute;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

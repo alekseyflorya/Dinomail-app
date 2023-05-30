@@ -25,15 +25,21 @@
             .route-status{
                 display: flex;
                 align-items: center;
-                span{
-                    p{
+                .routes{
+                    display: flex;
+                    margin: 2% 0px 0px 10px; 
+                    align-items: baseline;              
+                    .prev-route{
+                        display: flex;
+                        font-size: 16px;
+                        margin-right: 5px;
+                        font-family: MacpawFixelMedium;
+                        cursor: pointer;
+                    }
+                    .curr-route{
                         margin: 0;
                         color: #1BBDA0;
                     }
-                    display: flex;
-                    font-size: 16px;
-                    font-family: MacpawFixelMedium;
-                    margin: 2% 0px 0px 10px;                
                 }
                 img{
                     width: 18px;

@@ -1,0 +1,63 @@
+.MuiBox-root{
+    width: 97%!important;
+    margin-left: 30px;
+    font-family: MacpawFixelMedium;
+    border-bottom: none!important;
+    .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.css-1mxz8qt-MuiPaper-root{
+        box-shadow: none;
+        .MuiTableContainer-root.css-rorn0c-MuiTableContainer-root{
+
+            .MuiTable-root.css-1gplja-MuiTable-root{
+                
+            .MuiTableHead-root{
+                .row-wrapper{
+                    color: inherit;
+                    display: table-row;
+                    vertical-align: middle;
+                    outline: 0;
+                    cursor: pointer;
+                    position: relative;
+                    width: 100%;
+                }
+                .MuiTableRow-root {
+                    /*HEAD oF TABLE*/
+                    border-bottom: 1px solid rgba(224, 224, 224, 1);
+                    th{
+                        font-size: 14px;
+                        font-family: MacpawFixelMedium!important;
+                        vertical-align: middle !important;
+                        span{
+                            opacity: 0.3;
+                        }
+                        svg{
+                            display: none;
+                        }
+                        .img{
+                            margin-top: 10px;
+                            width: 16px;
+                            height: 16px;
+                        }
+                        td{
+                            border-bottom: none!important;
+                            font-family: MacpawFixelMedium!important;
+                        }   
+                    }
+                }
+                
+                .MuiTableBody-root-css-apqrd9-MuiTableBody-root {
+                    /*tbody*/    
+                    font-family: MacpawFixelMedium!important;
+                    .MuiTableRow-root.MuiTableRow-hover.css-10cbwbc-MuiTableRow-root{
+                        tr{
+                        }
+                    }
+                    .MuiTableRow-root:hover{
+                        background-color: '#49bb7b!important';
+                    }
+                   
+                }
+            }
+        }
+       }
+    }
+}

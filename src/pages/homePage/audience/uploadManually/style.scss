@@ -23,15 +23,20 @@
             .route-status{
                 display: flex;
                 align-items: center;
-                span{
+                .manual-routes{
+                    display: flex;
+                    align-items: baseline;
+                    span{
+                        display: flex;
+                        cursor: pointer;
+                        font-size: 16px;
+                        font-family: MacpawFixelMedium;
+                        margin: 2% 0px 0px 10px;                
+                    }
                     p{
                         margin: 0 10px;
                         color: #1BBDA0;
                     }
-                    display: flex;
-                    font-size: 16px;
-                    font-family: MacpawFixelMedium;
-                    margin: 2% 0px 0px 10px;                
                 }
                 img{
                     width: 18px;

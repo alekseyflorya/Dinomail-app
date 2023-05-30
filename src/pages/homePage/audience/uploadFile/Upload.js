@@ -15,13 +15,19 @@ export const Upload = () => {
         navigate('/audience/segmentation', {replace:true})
     }
 
+    const handleNavBack = () => {
+        navigate('/audience/', {replace:true})
+    }
+
     return(
         <div className="upload-wrapper" id={id}>
             <div className='header'>
                 <div className='content-box'>
                     <div className='route-status'>
                         <img src={audience} alt="header-audience"/>
-                        <span>Audience / <p>Add contacts via file</p></span>
+                        <div className="routes">
+                            <p className="prev-route" onClick={handleNavBack}>Audience/</p> 
+                            <p className="curr-route"> Add contacts via file</p></div>
                     </div>
                     <div className={"btns"}>
                         <button className="transparent">

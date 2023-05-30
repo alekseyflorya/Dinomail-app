@@ -11,6 +11,7 @@ import { Upload } from './pages/homePage/audience/uploadFile/Upload';
 import { Segmentation } from './pages/homePage/audience/segmentation/Segmentation';
 import { UploadManually } from './pages/homePage/audience/uploadManually/ManualUpload';
 import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
+import { Tags } from './pages/homePage/tags/tags';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                   <Route path={'/audience/uploadmanually'} element={<UploadManually/>}/>
                   <Route path={'/audience/segmentation'} element={<Segmentation/>}/>
                   <Route path={'/audience/manualsegment'} element={<SegmentManually/>}/>
+                  <Route path={'/tags'} element={<Tags/>}/>
               </Routes>
           </div>
       </Router>
