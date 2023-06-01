@@ -15,7 +15,7 @@ export const UploadManually = () => {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
+    /*useEffect(() => {
         const addAutoResize = () => {
             document.querySelectorAll('[data-autoresize]').forEach(function (element) {
               element.style.boxSizing = 'border-box';
@@ -28,15 +28,19 @@ export const UploadManually = () => {
             });
         }
         addAutoResize()  
-    }, [])   
-
+    }, []) */
+    useEffect(() => {
+        var scroll = document.getElementById('vl');
+        var offset = scroll.offsetHeight - scroll.clientHeight;
+        scroll.scrollTop = scroll.scrollHeight;
+        scroll.animate({scrollTop: scroll.scrollHeight + offset + "px"});
+    }, [isRow])
     {/*
         fetch("/signin?email=stopup.mail@gmail.com&password=123456", { method: "post" })
             .then(response => response.text())
             .then(result => console.log(result, "result"))
             .catch(error => console.log('error', error));
     */}
-
     const handleNav = () => {
         navigate('/audience/manualsegment', {replace:true})
     }
@@ -89,8 +93,18 @@ export const UploadManually = () => {
                             <span>4 contacts added</span>
                         </div>
                     </div>
-                    <div className='area-wrapper'>
+                    <div className='area-wrapper' id="area">
+                            <div className="vl" id="vl" 
+                                 
+                                data-autoresize>
+                                {Array.from(Array(isRow).keys()).map((item, index) => {
+                                    return(
+                                        <span id="sp">{item + 1}</span>
+                                    )
+                                })}
+                            </div>
                         <textarea
+                            addAutoResize
                             className="textarea"
                             onChange={handleChangeText}
                         />

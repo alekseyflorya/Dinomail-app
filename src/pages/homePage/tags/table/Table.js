@@ -1,6 +1,6 @@
 import './style.scss';
 import hash from "../../../../assets/images/greenHash.png";
-import arrow from "../../../../assets/images/greyTagArrow.png";
+import arrow from "../../../../assets/images/arrDownSVG.svg";
 import {useEffect, useState, useRef, useCallback} from 'react';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -28,7 +28,6 @@ import { visuallyHidden } from '@mui/utils';
 import deleted from '../../../../assets/images/deleteTag.png';
 import edit from '../../../../assets/images/editTag.png';
 import { hover } from '@testing-library/user-event/dist/hover';
-import { Row } from './Row';
 
 function createData(name, calories, fat, carbs, protein) {
   return {
@@ -125,10 +124,12 @@ function EnhancedTableHead(props) {
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
+            
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
-              sx={{alignItems:"center"}}
+              sx={{alignItems:"baseline!important"}}
+              
             >
               <span>{headCell.label}</span>
               {orderBy === headCell.id ? (
@@ -137,7 +138,7 @@ function EnhancedTableHead(props) {
                 </Box>
               ) : null}
             </TableSortLabel>
-            <img src={arrow} style={{height:"16px"}}/>
+            <img src={arrow} style={{}}/>
           </TableCell>
         ))}
       </TableRow>
@@ -319,7 +320,12 @@ export default function EnhancedTable() {
 
                           <div 
                             id="buttons"
-                            style={index == hoveredIndex ? {display:"flex",position:"absolute", right:"15%"} : {display:"none"}} className='button-wrapper'>
+                            style={index == hoveredIndex ? 
+                                      {display:"flex",position:"absolute", right:"15%"} 
+                                    : 
+                                      {display:"none"}} 
+                            className='button-wrapper'
+                          >
                                     <img 
                                     src={deleted}
                                     style={{width:"32px", height:"32px", marginRight:"10px"}}

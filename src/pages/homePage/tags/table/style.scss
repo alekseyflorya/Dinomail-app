@@ -10,18 +10,19 @@
             .MuiTable-root.css-1gplja-MuiTable-root{
                 
             .MuiTableHead-root{
-                .row-wrapper{
-                    color: inherit;
-                    display: table-row;
-                    vertical-align: middle;
-                    outline: 0;
-                    cursor: pointer;
-                    position: relative;
-                    width: 100%;
-                }
+                
                 .MuiTableRow-root {
                     /*HEAD oF TABLE*/
                     border-bottom: 1px solid rgba(224, 224, 224, 1);
+                    .MuiTableCell-root.MuiTableCell-head.MuiTableCell-alignLeft.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTableCell-root{
+                        align-items: center!important;
+                        span{
+                            /*work*/
+                        }
+                        img{
+                            align-self: flex-end!important;
+                        }
+                    }
                     th{
                         font-size: 14px;
                         font-family: MacpawFixelMedium!important;
@@ -33,7 +34,6 @@
                             display: none;
                         }
                         .img{
-                            margin-top: 10px;
                             width: 16px;
                             height: 16px;
                         }
@@ -47,13 +47,7 @@
                 .MuiTableBody-root-css-apqrd9-MuiTableBody-root {
                     /*tbody*/    
                     font-family: MacpawFixelMedium!important;
-                    .MuiTableRow-root.MuiTableRow-hover.css-10cbwbc-MuiTableRow-root{
-                        tr{
-                        }
-                    }
-                    .MuiTableRow-root:hover{
-                        background-color: '#49bb7b!important';
-                    }
+                   
                    
                 }
             }
