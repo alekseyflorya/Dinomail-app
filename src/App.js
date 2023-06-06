@@ -12,6 +12,7 @@ import { Segmentation } from './pages/homePage/audience/segmentation/Segmentatio
 import { UploadManually } from './pages/homePage/audience/uploadManually/ManualUpload';
 import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
 import { Tags } from './pages/homePage/tags/tags';
+import { TagPage } from './pages/homePage/tags/tagPage/TagPage';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
       <Router>
-          <div className={'App'}>
+        <div className={'App'}>
               <Sidebar/>
               <Routes>
                   <Route path={'/loginpage'} element={<MainPage/>}/>
@@ -37,6 +38,7 @@ function App() {
                   <Route path={'/audience/segmentation'} element={<Segmentation/>}/>
                   <Route path={'/audience/manualsegment'} element={<SegmentManually/>}/>
                   <Route path={'/tags'} element={<Tags/>}/>
+                  <Route path={'/tags/:id'} element={<TagPage/>}/>
               </Routes>
           </div>
       </Router>

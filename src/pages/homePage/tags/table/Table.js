@@ -1,7 +1,8 @@
 import './style.scss';
 import hash from "../../../../assets/images/greenHash.png";
 import arrow from "../../../../assets/images/arrDownSVG.svg";
-import {useEffect, useState, useRef, useCallback} from 'react';
+import {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
@@ -27,19 +28,19 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import deleted from '../../../../assets/images/deleteTag.png';
 import edit from '../../../../assets/images/editTag.png';
-import { hover } from '@testing-library/user-event/dist/hover';
+import { useSelector, useDispatch } from "react-redux";
+import {deleteItem } from "../../../../utils/actionCreators/tagAction";
 
-function createData(name, calories, fat, carbs, protein) {
+export function createData(name, data, members, subscribers) {
   return {
     name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    data,
+    members,
+    subscribers,
   };
 }
 
-const rows = [
+export const rows = [
   createData('customer', "1 day ago", 3, 27),
   createData('passive', "1 day ago", 1, 57),
   createData('active', "1 day ago", 15, 97),
@@ -47,6 +48,9 @@ const rows = [
   createData('important', "1 day ago", 3.7, 67),
   createData('general', "1 day ago", 3.7, 67),
 ];
+
+console.log(rows, "Table.js")
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -190,18 +194,34 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
+
+  const {rowTag} = props;
+
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(18);
   const [hoveredIndex, setHoveredIndex] = React.useState(null);
+  const [isOpenModal, setIsOpenModal] = React.useState(false)
+  
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const handleRemoveTag = () => {
+    setIsOpenModal(false)
+    visibleRows.pop()
+    dispatch(deleteItem(rowTag.pop()))
+  }
+
+  useEffect(() => {
+    console.log(props.rowTag, "props")
+  },[props.rowTag])
 
   const [show, setShow] = useState(false);
-
-
+  
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -210,7 +230,7 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = rowTag.map((n) => n.name);
       setSelected(newSelected);
       return;
     }
@@ -252,15 +272,15 @@ export default function EnhancedTable() {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rowTag.length) : 0;
 
   const visibleRows = React.useMemo(
     () =>
-      stableSort(rows, getComparator(order, orderBy)).slice(
+      stableSort(rowTag, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage,
       ),
-    [order, orderBy, page, rowsPerPage],
+    [order, orderBy, page, rowsPerPage, rowTag],
   );
 
   const handleRowHover = (event, rowIndex) => setHoveredIndex(rowIndex);
@@ -281,7 +301,7 @@ export default function EnhancedTable() {
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
-              rowCount={rows.length}
+              rowCount={rowTag.length}
             />
             <TableBody sx={{ cursor: 'pointer', position:"relative"}}>
               {visibleRows.map((row, index) => {
@@ -316,17 +336,25 @@ export default function EnhancedTable() {
                               style={{width:"24px", height:"24px", marginRight:"10px"}}
                               alt="hash-table"
                           />
-                          <span style={{fontFamily: 'MacpawFixelMedium', fontSize:"14px"}}>{row.name}</span>
-
+                          <Link 
+                            style={{fontFamily: 'MacpawFixelMedium', 
+                              fontSize:"14px",
+                              textDecoration:"none", 
+                              color:"#2A2B3B", 
+                            }}
+                            to={`/tags/${row.name}`}
+                            >
+                              {row.name}</Link>
                           <div 
                             id="buttons"
                             style={index == hoveredIndex ? 
-                                      {display:"flex",position:"absolute", right:"15%"} 
+                                      {display:"flex",position:"absolute", right:"10%"} 
                                     : 
                                       {display:"none"}} 
                             className='button-wrapper'
                           >
-                                    <img 
+                                    <img
+                                    onClick={e => {setIsOpenModal(true)}} 
                                     src={deleted}
                                     style={{width:"32px", height:"32px", marginRight:"10px"}}
                                   />
@@ -341,25 +369,19 @@ export default function EnhancedTable() {
                         align="left">
                           <span 
                           style={{fontFamily: 'MacpawFixelMedium', fontSize:"14px"}}
-                          >{row.calories}</span></TableCell>
+                          >{row.data}</span></TableCell>
                       <TableCell 
                         sx={{borderBottom:"none"}} 
                         align="left">
                           <span style={{fontFamily: 'MacpawFixelMedium', fontSize:"14px"}}
-                          >{row.fat}</span></TableCell>
+                          >{row.members}</span></TableCell>
                       <TableCell 
                         sx={{borderBottom:"none"}} 
                         align="left">
                           <span 
                             style={{fontFamily: 'MacpawFixelMedium', fontSize:"14px"}}
-                            >{row.carbs}</span></TableCell>
-                      <TableCell 
-                      sx={{borderBottom:"none"}} 
-                      align="left">
-                          <span style={{fontFamily: 'MacpawFixelMedium', fontSize:"14px"}}
-                          >{row.protein}</span></TableCell>
+                            >{row.subscribers}</span></TableCell>
                     </TableRow>
-                    
                 );
               })}
               {emptyRows > 0 && (
@@ -376,6 +398,24 @@ export default function EnhancedTable() {
           </Table>
         </TableContainer>
       </Paper>
+      <div className={isOpenModal ? "modal-delete-tag" : 'modal-hide'}>
+          <div className="modal-window-tag">
+            <h1 className='modal-tag-title'>Are you sure you want
+                to delete this tag?</h1>
+            <span>This will disconnect all the contacts in the tag from it</span>
+            <div className="btns-tag">
+              <button className="btn1" onClick={() => {setIsOpenModal(false)}}>
+                <span>Cancel</span>
+              </button>
+              <button 
+                className="btn2"
+                onClick={handleRemoveTag} 
+              >
+                <span>Delete</span>
+              </button>
+            </div>
+          </div>
+        </div>
     </Box>
   );
 }

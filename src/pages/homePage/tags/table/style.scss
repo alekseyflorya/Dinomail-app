@@ -16,8 +16,9 @@
                     border-bottom: 1px solid rgba(224, 224, 224, 1);
                     .MuiTableCell-root.MuiTableCell-head.MuiTableCell-alignLeft.MuiTableCell-sizeMedium.css-1ygcj2i-MuiTableCell-root{
                         align-items: center!important;
-                        span{
+                        a{
                             /*work*/
+                            text-decoration: none;
                         }
                         img{
                             align-self: flex-end!important;
@@ -48,10 +49,104 @@
                     /*tbody*/    
                     font-family: MacpawFixelMedium!important;
                    
-                   
+                    .MuiTableRow-root{
+                       .MuiTableCell-root {
+                          
+                        }
+                    }
                 }
             }
         }
        }
+    }
+    .modal-delete-tag{
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        z-index: 99;
+        height: 100vh;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        .modal-window-tag{
+            width: 30vw;
+            position: relative;
+            padding: 30px 20px;
+            height: 19vh;
+            border-radius: 20px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            .modal-tag-title{
+                font-family: MacpawFixelMedium;
+                font-size: 20px;
+                margin: 0;
+            }   
+            span{
+                align-self: flex-start;
+                margin: 10px 0;
+            }
+            .input-box{
+                position: relative;
+                img{
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    left: 3%;
+                    top: 25%;
+                }
+                .create-input{
+                    width: 90%;
+                    font-family: MacpawFixelMedium;
+                    border: none;
+                    padding-left: 42px;
+                    height: 54px;
+                    font-size: 16px;
+                    background: rgba(42, 43, 59, 0.05);
+                    border-radius: 17px;
+                    outline: none;
+                }::placeholder{
+                    color: #2A2B3B;
+                    opacity: 0.5;
+                }
+            }
+            .btns-tag{
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                button{
+                    padding: 10px 20px;
+                    font-size: 14px;
+                    font-family: MacpawFixelMedium;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+                .btn1{
+                    width: 48%;
+                    border: 1.5px solid #1BBDA0;
+                    background-color: transparent;
+                    span{
+                        color: #1BBDA0;
+                    }
+                }
+                .btn2{
+                    width: 48%;
+                    border: none;
+                    background: #FF5656;
+                    span{
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+    .modal-hide{
+        display: none;
     }
 }
