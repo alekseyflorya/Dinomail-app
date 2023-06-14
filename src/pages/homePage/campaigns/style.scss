@@ -1,0 +1,218 @@
+.capmaigns-wrapper{
+    width: 100vw;
+    height: 100vh;
+    .header{
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid #E8E8E8;
+        height: 80px;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        .content-box{
+            align-self: center;
+            max-width: 1755px;
+            margin: 0px 0px 0px 60px;
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .route-status{
+                display: flex;
+                align-items: center;
+                .manual-routes{
+                    display: flex;
+                    align-items: baseline;
+                    span{
+                        display: flex;
+                        cursor: pointer;
+                        font-size: 16px;
+                        font-family: MacpawFixelMedium;
+                        margin: 2% 0px 0px 10px;                
+                    }
+                    p{
+                        margin: 0 10px;
+                        color: #1BBDA0;
+                    }
+                }
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+            .btns{
+                display: flex;
+                margin-left: 30px;
+                .filled{
+                    cursor: pointer;
+                    width: 205px;
+                    height: 44px;
+                    background-color: #1BBDA0;
+                    border: none;
+                    border-radius: 10px;
+                    margin-left: 10px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-evenly;
+                    span{
+                        font-family: MacPawFixelMedium;
+                        color: #ffffff;
+                        font-size: 14px;
+                    }
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }:disabled{
+                    opacity: 0.5;
+                    cursor: default;
+                }
+            }
+        }
+    }  
+    .campaigns-preview{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        top: 30vh;
+        left: 40vw;
+        width: 520px;
+        height: 420px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 20px;
+        img{
+            max-width: 520px;
+            max-height: 173px;
+        }
+        .campaign-desc{
+            h3{
+                font-family: MacPawFixelBold;
+                font-size: 24px;
+                margin: 0px 0px 10px auto;
+            }
+            p{
+                margin: 0 0 auto;
+                font-size: 16px;
+                line-height: 22px;
+                font-family: MacPawFixelMedium;
+            }
+        }
+        button{
+            background-color: #1bbda0;
+            height: 45px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            span{
+                margin-top: 2%;
+                color: #ffffff;
+                font-family: MacPawFixelMedium;
+            }
+        }
+    }
+    .campaigns-box{
+        margin: 10vh 11vw 0vw 18.5vw;
+        .c-title{
+            text-align: left;
+            max-width: 40vw;
+        }
+        .inner-box{
+            display: flex;
+            .tabs{
+                h4{
+                    text-align: left;
+                    margin: 20px 0;
+                    font-size: 16px;
+                }
+                .upper-container{
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #cacaca;
+                }
+                .link, .link-s, .emails{
+                    display: flex;
+                    align-items: center;
+                    margin: 10px 0;
+                    cursor: pointer;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                    .text{
+                        margin-left: 10px;
+                    }
+                    .status{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 24px;
+                        width: 54px;
+                        background: #E4E4E6;
+                        border-radius: 10px;
+                        font-size: 10px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+            .cards{
+                margin-left: 30px;
+                .search-input{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 11.9vw 30px 0px;
+                    input{
+                        align-items: center;
+                        display: flex;
+                        justify-content: center;
+                        padding: 10px 20px 10px 50px;
+                        height: 16px;
+                        width: 280px;
+                        background: rgba(42, 43, 59, 0.05);
+                        border-radius: 10px;
+                        border: none;
+                    }::placeholder{
+                        display: flex;
+                        margin: 10px 0 0 0;
+                    }
+                    img{
+                        left: 5%;
+                        top: 25%;
+                        position: absolute;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+                .card{
+                    border-radius: 20px;
+                    padding: 20px;
+                    display: flex;
+                    min-width: 793px;
+                    width: 100%;
+                    background-color: #ffffff;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    img{
+                        align-self: flex-start;
+                        width: 24px;
+                        height: 24px;
+                    }
+                    .card-content{
+                        margin-left: 10px;
+                        text-align: left;
+                        .title{
+                            h5{
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

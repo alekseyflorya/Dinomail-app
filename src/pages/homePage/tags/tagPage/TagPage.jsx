@@ -1,14 +1,20 @@
 import arrow from "../../../../assets/images/greenArrowDown.png";
-import EnhancedTable from "../table/Table";
 import pencil from "../../../../assets/images/tagEdit.png";
 import arrowUp from "../../../../assets/images/greenArrowUp.png";
 import search from "../../../../assets/images/search.png";
 import tuning from "../../../../assets/images/tuningTag.png";
+import { useNavigate } from "react-router-dom";
 import * as React from "react";
 import './style.scss';
+import  TableContact  from "./currTagTable/tagTable";
 
 export const TagPage = () => {
     const [isClicked, setIsClicked] = React.useState(false);
+    const navigate = useNavigate()
+
+    const handleNavBack = () => {
+        navigate('/tags/', {replace:true})
+    }
 
     const handleClick = () => {
         setIsClicked(true)
@@ -26,7 +32,7 @@ export const TagPage = () => {
                 <div className='content-box'>
                     <div className='route-status'>
                         <div className="manual-routes">
-                            <span>#Tags /</span>
+                            <span onClick={handleNavBack}>#Tags /</span>
                             <p>#{appId}</p>
                         </div>
                     </div>
@@ -63,6 +69,7 @@ export const TagPage = () => {
                         <img src={tuning} alt="tag-tune" className="tune"/>
                     </div>
                 </div>
+                <TableContact/>
             </div>
         </div>
     )

@@ -17,8 +17,8 @@ import { Cards } from "./cards/Cards";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import {useState, useEffect} from "react";
 
-
 export const Audience = () => {
+
     const [isShowContacts, setisShowContacts] = useState()
     const [isUpload, setIsUpload] = useState(false)
 
@@ -37,9 +37,9 @@ export const Audience = () => {
     }
 
 
-    const handleClick = () => [
+    const handleClick = () => {
         setisShowContacts(true)
-    ]
+    }
 
     const navigate = useNavigate()
 

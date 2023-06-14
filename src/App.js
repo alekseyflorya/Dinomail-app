@@ -13,6 +13,8 @@ import { UploadManually } from './pages/homePage/audience/uploadManually/ManualU
 import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
 import { Tags } from './pages/homePage/tags/tags';
 import { TagPage } from './pages/homePage/tags/tagPage/TagPage';
+import { Campaign } from '@mui/icons-material';
+import { Campaigns } from './pages/homePage/campaigns/campaigns';
 
 function App() {
 
@@ -38,6 +40,7 @@ function App() {
                   <Route path={'/audience/segmentation'} element={<Segmentation/>}/>
                   <Route path={'/audience/manualsegment'} element={<SegmentManually/>}/>
                   <Route path={'/tags'} element={<Tags/>}/>
+                  <Route path={'/campaigns'} element={<Campaigns/>}/>
                   <Route path={'/tags/:id'} element={<TagPage/>}/>
               </Routes>
           </div>

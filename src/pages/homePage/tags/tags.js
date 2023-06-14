@@ -6,7 +6,6 @@ import {useState, useEffect,useRef} from "react";
 import hashtagactive from "../../../assets/images/inputHashActive.png";
 import hashtagicon from "../../../assets/images/inputHash.png";
 import { rows } from './table/Table';
-import { createData } from './table/Table';
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, deleteItem } from "../../../utils/actionCreators/tagAction";
 
