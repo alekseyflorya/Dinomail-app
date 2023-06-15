@@ -12,7 +12,9 @@ import emails from "../../../assets/images/emails.png";
 import sms from "../../../assets/images/sms.png";
 import journey from "../../../assets/images/journey.png";
 import automations from "../../../assets/images/automations.png";
-
+import arrUp from "../../../assets/images/whiteArrUp.png";
+import deleted from "../../../assets/images/deleteTag.png";
+import graph from "../../../assets/images/Graph.png";
 
 export const Campaigns = () => {
     /*
@@ -29,6 +31,9 @@ export const Campaigns = () => {
     const [isShowContent, setisShowContent] = useState()
     const [isSelected, setIsSelected] = useState(false)
     const [isFiltered, setIsFiltered] = useState(false)
+    const [isOpenSubheader, setIsOpenSubheader] = useState(false)
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [item, setItem] = useState();
 
     const statusesObject = {
         "COMPLETED": {color: "red", title: "Completed"}, 
@@ -41,6 +46,12 @@ export const Campaigns = () => {
         setIsFiltered(true)
     }
 
+    const handleOpenSubheader = () => {
+        setIsOpenSubheader(true)
+        if(isOpenSubheader){
+            setIsOpenSubheader(false)
+        }
+    }
 
     const handleOpenModal = () => {
         setIsOpen(true)
@@ -53,9 +64,18 @@ export const Campaigns = () => {
         }
     }
 
+    const handleRowHover = (event, rowIndex) => setHoveredIndex(rowIndex);
+    const handleRowHoverLeave = (event, rowIndex) => setHoveredIndex(null);
+
+
     const handleShowContent = () => {
         setisShowContent(true)
     }
+
+    useEffect(() => {
+        const el = document.getElementsByClassName('campaigns-box');
+        
+    },[])
     return(
         <div className='capmaigns-wrapper'>
             <div className='header'>
@@ -68,24 +88,69 @@ export const Campaigns = () => {
                     </div>
                     <div className="btns">
                         <button 
+                            onClick={handleOpenSubheader}
                             className={"filled"} 
                             >
                                 <span>Create new campaign</span>
-                                <img src={arrow} style={isShowContent?{display:"flex"}:{display:"none"}}/> 
+                                <img src={isOpenSubheader ? arrUp : arrow} style={isShowContent?{display:"flex"}:{display:"none"}}/> 
                         </button>
+                    </div>
+                </div>
+            </div>
+            <div className={isOpenSubheader ? 'upload-campaign':"hide-upload"}>
+                <div className='cards'>
+                    <div className='email'>
+                            <img src={emails} alt="upload"/>
+                            <div className='upload-des'>
+                                <h4>Email</h4>
+                                <p>Send email newsletters, announcements and more</p>
+                            </div>
+                    </div>
+                    <div className='SMS'>
+                            <div className='cooming-soon'>
+                                <span>Soon</span>
+                            </div>
+                            <img src={sms} alt="upload"/>
+                            <div className='upload-des'>
+                                <h4>SMS</h4>
+                                <p>Send SMS notifications, offers, surveys and more</p>
+                            </div>
+                    </div>
+                    <div className='journey'>
+                            <div className='cooming-soon'>
+                                <span>Soon</span>
+                            </div>
+                            <img src={journey} alt="upload"/>
+                            <div className='upload-des'>
+                                <h4>Import</h4>
+                                <p>Sync your contacts lists with Mailchimp, Shopify, Ortto, etc.</p>
+                            </div>
+                    </div>
+                    <div className='automations'>
+                            <div className='cooming-soon'>
+                                <span>Soon</span>
+                            </div>
+                            <img src={automations} alt="upload"/>
+                            <div className='upload-des'>
+                                <h4>Import</h4>
+                                <p>Sync your contacts lists with Mailchimp, Shopify, Ortto, etc.</p>
+                            </div>
                     </div>
                 </div>
             </div>
             {
                 isShowContent?
-                <div className='campaigns-box'>
+                <div 
+                    className={'campaigns-box'}
+                    style={isOpenSubheader?{marginTop:"27vh"}: null}
+                    >
                     <div className='c-title'>
                         <h1>Campaigns</h1>
                         <p>Email marketing feature for creating and sending newsletters with email templates, 
                             email addresses, send time settings, and results analytics.</p>
                     </div>   
                     <div className='inner-box'>
-                        <div className='tabs'>
+                        <div className='tabs' >
                             <h4>View by Status</h4>
                             <div className='upper-container'>
                                 {
@@ -139,6 +204,7 @@ export const Campaigns = () => {
                                         img:emails, 
                                         title:"Welcome message", 
                                         status:"Draft", 
+                                        color:"#a5a5a5",
                                         type:"Regular", 
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
@@ -147,31 +213,55 @@ export const Campaigns = () => {
                                         title:"Promocode gift", 
                                         status:"Ongoing", 
                                         type:"Event", 
+                                        color:"#3F93F7",
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
                                     {
                                         img:emails, 
                                         title:"The weekly drop", 
                                         status:"Completed", 
+                                        color:"#1BBDA0",
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
                                     {
                                         img:emails, 
                                         title:"The weekly drop", 
-                                        status:"Completed", 
+                                        status:"Scheduled", 
+                                        color:"#EDB833",
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
                                 ].map((item, index)=> {
                                     return(
-                                        <div className='card' key={index}>
+                                        <div className='card' 
+                                            key={index} 
+                                            onMouseEnter={e => handleRowHover(e,index)} 
+                                            onMouseLeave={e => handleRowHoverLeave(e, index)}
+                                        >
+                                            <div 
+                                                id="buttons"
+                                                style={index == hoveredIndex ? 
+                                                        {display:"flex",position:"absolute",} 
+                                                        : 
+                                                        {display:"none"}} 
+                                                className='button-wrapper'
+                                            >
+                                                    <img
+                                                        src={deleted}
+                                                        style={{width:"32px", height:"32px", marginRight:"10px"}}
+                                                    />
+                                                    <img 
+                                                        src={graph}
+                                                        style={{width:"32px", height:"32px"}}
+                                                    />
+                                            </div>
                                             <img src={item.img} alt="cardImg"/>
                                             <div className='card-content'>
                                                 <div className='title'>
                                                     <h5>{item.title}</h5>
-                                                    <div className='tab-select'>
-                                                        
+                                                    <div className='tab-select' style={{background: item.color}}>
+                                                        <span>{item.status}</span>
                                                     </div>
                                                 </div>
                                                 <div className='status'>
