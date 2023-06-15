@@ -15,10 +15,32 @@ import automations from "../../../assets/images/automations.png";
 
 
 export const Campaigns = () => {
+    /*
+    const stusesObject = {"COMPLETED": {color: "red", title: "Completed"}, "ONGOING": {color: "GREEN", title: "On going"}}
+    stusesObject[card.status]
+    stusesObject[card.status]
+    {color: "red", title: "Completed"}
+    const currentStatus = stusesObject[card.status]
+    currentStatus.color
+    currentStatus.title
+    */
 
     const [isOpen, setIsOpen] = useState(false)
     const [isShowContent, setisShowContent] = useState()
     const [isSelected, setIsSelected] = useState(false)
+    const [isFiltered, setIsFiltered] = useState(false)
+
+    const statusesObject = {
+        "COMPLETED": {color: "red", title: "Completed"}, 
+        "DRAFT": {color: "grey", title: "Draft"}, 
+        "SCHEDULED": {color: "red", title: "Scheduled"}, 
+        "ONGOING": {color: "GREEN", title: "Ongoing"}
+    }
+
+    const handleFilter = () => {
+        setIsFiltered(true)
+    }
+
 
     const handleOpenModal = () => {
         setIsOpen(true)
@@ -26,7 +48,9 @@ export const Campaigns = () => {
     
     const handleSelected = () => {
         setIsSelected(true)
-        if(isSelected) {}
+        if(isSelected) {
+            setIsSelected(false)
+        }
     }
 
     const handleShowContent = () => {
@@ -53,7 +77,7 @@ export const Campaigns = () => {
                 </div>
             </div>
             {
-                !isShowContent?
+                isShowContent?
                 <div className='campaigns-box'>
                     <div className='c-title'>
                         <h1>Campaigns</h1>
@@ -72,7 +96,7 @@ export const Campaigns = () => {
                                         {img:drafts, text:"Drafts"},
                                     ].map((item, index) => {
                                         return(
-                                                <div className='link' key={index}>
+                                                <div className='link' key={index} onClick={handleFilter}>
                                                     <img src={item.img}/>
                                                     <span className='text'>{item.text}</span>
                                                 </div>
@@ -91,7 +115,7 @@ export const Campaigns = () => {
                                     {img:automations, text:"AlAutomations", des:"Soon"},
                                 ].map((item, index) => {
                                     return(
-                                        <div className='link-s' key={index}>
+                                        <div className='link-s' key={index} onClick={handleFilter}>
                                             <img src={item.img}/>
                                             <span className='text'>{item.text}</span>
                                             <div className='status'>
@@ -120,14 +144,21 @@ export const Campaigns = () => {
                                     },
                                     {
                                         img:emails, 
-                                        title:"Welcome message", 
+                                        title:"Promocode gift", 
                                         status:"Ongoing", 
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
                                     {
                                         img:emails, 
-                                        title:"Welcome message", 
+                                        title:"The weekly drop", 
+                                        status:"Completed", 
+                                        type:"Event", 
+                                        des:"Edited st, october 4th 10:11 AM by You"
+                                    },
+                                    {
+                                        img:emails, 
+                                        title:"The weekly drop", 
                                         status:"Completed", 
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
@@ -139,12 +170,15 @@ export const Campaigns = () => {
                                             <div className='card-content'>
                                                 <div className='title'>
                                                     <h5>{item.title}</h5>
-                                                    <div className='status'>
-                                                        <span>{item.status}</span>
+                                                    <div className='tab-select'>
+                                                        
                                                     </div>
                                                 </div>
-                                                <span>{item.type}</span>
-                                                <span>{item.des}</span>
+                                                <div className='status'>
+                                                    <span>{item.status}</span>
+                                                </div>
+                                                <span className='type'>{item.type}</span>
+                                                <span className='des'>{item.des}</span>
                                             </div>
                                         </div>
                                     )

@@ -181,7 +181,7 @@
                         margin: 10px 0 0 0;
                     }
                     img{
-                        left: 5%;
+                        left: 4%;
                         top: 25%;
                         position: absolute;
                         width: 16px;
@@ -206,9 +206,22 @@
                         margin-left: 10px;
                         text-align: left;
                         .title{
+                            display: flex;
                             h5{
+                                font-size: 14px;
+                                font-family: MacPawFixelmedium;
                                 margin: 0;
                             }
+                        }
+                        .status{
+                            span{
+                                font-size: 14px;
+                            }
+                            opacity: 0.5;
+                        }
+                        .type, .des{
+                            opacity: 0.5;
+                            font-size: 14px;
                         }
                     }
                 }
