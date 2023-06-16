@@ -260,9 +260,13 @@ export const Campaigns = () => {
                                             <div className='card-content'>
                                                 <div className='title'>
                                                     <h5>{item.title}</h5>
-                                                    <div className='tab-select' style={{background: item.color}}>
-                                                        <span>{item.status}</span>
-                                                    </div>
+                                                    {
+                                                    
+                                                        <div className='tab-select' style={{background: item.color}}>
+                                                            <span>{item.status}</span>
+                                                        </div>
+                                                        
+                                                    }
                                                 </div>
                                                 <div className='status'>
                                                     <span>{item.status}</span>

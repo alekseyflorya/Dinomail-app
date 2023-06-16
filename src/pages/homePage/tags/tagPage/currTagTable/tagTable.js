@@ -36,9 +36,9 @@ export const rows = [
   createData('dolores.chambers@example.com', "Esther", "Richards", '4517 Washington Ave. Manchester, Kentucky 39495'),
   createData('sara.cruz@example.com', "Esther", "Richards", '4517 Washington Ave. Manchester, Kentucky 39495'),
   createData('dolores.chambers@example.com', "Esther", "Richards", '4517 Washington Ave. Manchester, Kentucky 39495'),
-  createData('sara.cruz@example.com', "1 day ago", 3, 1123),
-  createData('dolores.chambers@example.com', "1 day ago", 3.7, 67),
-  createData('sara.cruz@example.com', "1 day ago", 3.7, 67),
+  createData('sara.cruz@example.com', "asdfasdf", "sdas", 1123),
+  createData('dolores.chambers@example.com', "ffffffff", "fsssdsds", 67),
+  createData('sara.cruz@example.com', "asdfasdf", 'asdasdfas', 67),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -120,7 +120,7 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell, headCellIndex) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align={headCell.numeric ? 'left' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
             style={{ width: headCell?.width ?? "auto" }}
@@ -157,50 +157,7 @@ function EnhancedTableToolbar(props) {
   const { numSelected } = props;
 
   return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-      
-    >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-        </Typography>
-      )}
-
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
+    <></>
   );
 }
 
@@ -208,8 +165,6 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-const DEFAULT_MIN_WIDTH_CELL = 70;
-const DEFAULT_MAX_WIDTH_CELL = 800;
 
 export default function TableContact() {
 
@@ -219,7 +174,7 @@ export default function TableContact() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(12);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -286,7 +241,7 @@ export default function TableContact() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: '100%', mb: 2, boxShadow:"none" }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table
@@ -335,9 +290,9 @@ export default function TableContact() {
                     >
                       {row.email}
                     </TableCell>
-                    <TableCell align="right">{row.firstname}</TableCell>
-                    <TableCell align="right">{row.lastname}</TableCell>
-                    <TableCell align="right">{row.address}</TableCell>
+                    <TableCell align="left">{row.firstname}</TableCell>
+                    <TableCell align="left">{row.lastname}</TableCell>
+                    <TableCell align="left">{row.address}</TableCell>
                   </TableRow>
                 );
               })}
