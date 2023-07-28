@@ -48,10 +48,6 @@ export const rows = [
   createData('important', "1 day ago", 3.7, 67),
   createData('general', "1 day ago", 3.7, 67),
 ];
-
-console.log(rows, "Table.js")
-
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -217,7 +213,6 @@ export default function EnhancedTable(props) {
   }
 
   useEffect(() => {
-    console.log(props.rowTag, "props")
   },[props.rowTag])
 
   const [show, setShow] = useState(false);

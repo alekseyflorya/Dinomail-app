@@ -1,7 +1,7 @@
 import './style.scss';
 import arrow from "../../../assets/images/whiteArrDown.png";
 import search from "../../../assets/images/search.png";
-import {useState, useEffect,useRef} from "react";
+import {useState, useEffect, useRef} from "react";
 import plane from "../../../assets/images/plane.png";
 import dinoImg from '../../../assets/images/audience.png';
 import all from "../../../assets/images/all.png";
@@ -15,35 +15,22 @@ import automations from "../../../assets/images/automations.png";
 import arrUp from "../../../assets/images/whiteArrUp.png";
 import deleted from "../../../assets/images/deleteTag.png";
 import graph from "../../../assets/images/Graph.png";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 export const Campaigns = () => {
-    /*
-    const stusesObject = {"COMPLETED": {color: "red", title: "Completed"}, "ONGOING": {color: "GREEN", title: "On going"}}
-    stusesObject[card.status]
-    stusesObject[card.status]
-    {color: "red", title: "Completed"}
-    const currentStatus = stusesObject[card.status]
-    currentStatus.color
-    currentStatus.title
-    */
 
     const [isOpen, setIsOpen] = useState(false)
     const [isShowContent, setisShowContent] = useState()
     const [isSelected, setIsSelected] = useState(false)
-    const [isFiltered, setIsFiltered] = useState(false)
+    const [selectedStatus, setSelectedStatus] = useState("ALL")
     const [isOpenSubheader, setIsOpenSubheader] = useState(false)
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [item, setItem] = useState();
 
-    const statusesObject = {
-        "COMPLETED": {color: "red", title: "Completed"}, 
-        "DRAFT": {color: "grey", title: "Draft"}, 
-        "SCHEDULED": {color: "red", title: "Scheduled"}, 
-        "ONGOING": {color: "GREEN", title: "Ongoing"}
-    }
+    const navigate = useNavigate()
 
-    const handleFilter = () => {
-        setIsFiltered(true)
+    const handleNav = () => {
+        navigate('/campaigns/createcampaign', {replace:true})
     }
 
     const handleOpenSubheader = () => {
@@ -99,7 +86,7 @@ export const Campaigns = () => {
             </div>
             <div className={isOpenSubheader ? 'upload-campaign':"hide-upload"}>
                 <div className='cards'>
-                    <div className='email'>
+                    <div className='email' omClick={handleNav}>
                             <img src={emails} alt="upload"/>
                             <div className='upload-des'>
                                 <h4>Email</h4>
@@ -155,13 +142,13 @@ export const Campaigns = () => {
                             <div className='upper-container'>
                                 {
                                     [
-                                        {img:all, text:"All"},
-                                        {img:ongoing, text:"Ongoing"},
-                                        {img:completed, text:"Completed"},
-                                        {img:drafts, text:"Drafts"},
+                                        {img:all, text:"ALL"},
+                                        {img:ongoing, text:"ONGOING"},
+                                        {img:completed, text:"COMPLETED"},
+                                        {img:drafts, text:"DRAFT"},
                                     ].map((item, index) => {
                                         return(
-                                                <div className='link' key={index} onClick={handleFilter}>
+                                                <div className='link' key={index} onClick={() => {setSelectedStatus(item.text)}}>
                                                     <img src={item.img}/>
                                                     <span className='text'>{item.text}</span>
                                                 </div>
@@ -180,7 +167,7 @@ export const Campaigns = () => {
                                     {img:automations, text:"AlAutomations", des:"Soon"},
                                 ].map((item, index) => {
                                     return(
-                                        <div className='link-s' key={index} onClick={handleFilter}>
+                                        <div className='link-s' key={index}>
                                             <img src={item.img}/>
                                             <span className='text'>{item.text}</span>
                                             <div className='status'>
@@ -203,7 +190,7 @@ export const Campaigns = () => {
                                     {
                                         img:emails, 
                                         title:"Welcome message", 
-                                        status:"Draft", 
+                                        status:"DRAFT", 
                                         color:"#a5a5a5",
                                         type:"Regular", 
                                         des:"Edited st, october 4th 10:11 AM by You"
@@ -211,7 +198,7 @@ export const Campaigns = () => {
                                     {
                                         img:emails, 
                                         title:"Promocode gift", 
-                                        status:"Ongoing", 
+                                        status:"ONGOING", 
                                         type:"Event", 
                                         color:"#3F93F7",
                                         des:"Edited st, october 4th 10:11 AM by You"
@@ -219,7 +206,7 @@ export const Campaigns = () => {
                                     {
                                         img:emails, 
                                         title:"The weekly drop", 
-                                        status:"Completed", 
+                                        status:"COMPLETED", 
                                         color:"#1BBDA0",
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
@@ -227,12 +214,17 @@ export const Campaigns = () => {
                                     {
                                         img:emails, 
                                         title:"The weekly drop", 
-                                        status:"Scheduled", 
+                                        status:"SCHEDULED", 
                                         color:"#EDB833",
                                         type:"Event", 
                                         des:"Edited st, october 4th 10:11 AM by You"
                                     },
-                                ].map((item, index)=> {
+                                ].filter((card) => {
+                                    if(selectedStatus == "ALL"){
+                                        return true
+                                    }
+                                    return card.status === selectedStatus
+                                }).map((item, index)=> {
                                     return(
                                         <div className='card' 
                                             key={index} 
@@ -249,11 +241,11 @@ export const Campaigns = () => {
                                             >
                                                     <img
                                                         src={deleted}
-                                                        style={{width:"32px", height:"32px", marginRight:"10px"}}
+                                                        style={{width:"32px", height:"32px", marginRight:"10px", cursor:"pointer"}}
                                                     />
                                                     <img 
                                                         src={graph}
-                                                        style={{width:"32px", height:"32px"}}
+                                                        style={{width:"32px", height:"32px", cursor:"pointer"}}
                                                     />
                                             </div>
                                             <img src={item.img} alt="cardImg"/>
@@ -261,11 +253,9 @@ export const Campaigns = () => {
                                                 <div className='title'>
                                                     <h5>{item.title}</h5>
                                                     {
-                                                    
                                                         <div className='tab-select' style={{background: item.color}}>
                                                             <span>{item.status}</span>
                                                         </div>
-                                                        
                                                     }
                                                 </div>
                                                 <div className='status'>

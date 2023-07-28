@@ -75,21 +75,24 @@
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(20px);
         .modal-window-tag{
-            width: 30vw;
+            width: 20vw;
             position: relative;
             padding: 30px 20px;
-            height: 19vh;
+            height: 17vh;
             border-radius: 20px;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
             .modal-tag-title{
+                align-self: center;
                 font-family: MacpawFixelMedium;
                 font-size: 20px;
+                width: 250px;
                 margin: 0;
             }   
             span{
-                align-self: flex-start;
+                align-self: center;
+                width: 270px;
                 margin: 10px 0;
             }
             .input-box{

@@ -1,52 +1,7 @@
-.grid-wrapper{
-    max-width: 90%;
-    .MuiDataGrid-root{
-        //*
-        .MuiDataGrid-main{
-            //
-            .MuiDataGrid-columnHeaders{
-                display: flex !important;
-            }
-            .MuiDataGrid-columnHeadersInner{
-                display: flex!important;
-            }
-            div{
-            }
-        }
-    }
+.MuiPaper-root{
+  box-shadow: none;
 }
-
-.table {
-    table-layout: fixed;
-    width: 90%;
-    .tableHead{
-      user-select: none;
-    }
-    .tableCell {
-      border: 1px solid black !important;
-      padding: 10px 0;
-      &.resizable{
-        position: relative;
-      }
-      &.emptyCell{
-        width: "auto"
-      }
-    }
-   
-    .resizeLine{
-      position: absolute; 
-      height: 100%;
-      width: 4px;
-      top: 0;
-      right: -2px;
-      cursor: col-resize;
-      &:hover{
-        background-color: #0AA1DD;
-      }
-      &:active {
-        background-color: #0AA1DD;
-  
-      }
-    }
-    
-  }
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation4.tss-11quiee-MUIDataTable-paper.tss-1x5mjc5-MUIDataTable-root.container.css-11mde6h-MuiPaper-root{
+  /*parent table block*/
+  box-shadow: none;
+}

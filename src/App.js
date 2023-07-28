@@ -41,6 +41,7 @@ function App() {
                   <Route path={'/audience/manualsegment'} element={<SegmentManually/>}/>
                   <Route path={'/tags'} element={<Tags/>}/>
                   <Route path={'/campaigns'} element={<Campaigns/>}/>
+                  <Route path={'/campaigns/createcampaign'} element={<TagPage/>}/>
                   <Route path={'/tags/:id'} element={<TagPage/>}/>
               </Routes>
           </div>
