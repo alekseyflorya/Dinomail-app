@@ -6,7 +6,6 @@
         width: 100%;
         left: 0;
         top: 0;
-        border-bottom: 1px solid #E8E8E8;
         height: 80px;
         display: flex;
         position: absolute;
@@ -106,9 +105,10 @@
         margin: 90px 0 0 15.2vw ;
         .navigation{
             display: flex;
-            padding: 0 60px;
+            padding: 20px 60px;
             justify-content: space-between;
             border-bottom: 1px solid #E8E8E8;
+            border-top: 1px solid #E8E8E8;
             align-items: center;
             .nav-title{
                 align-self: flex-start;
@@ -173,5 +173,13 @@
             }
         }
         
+    }
+}
+
+@media(max-width: 1280px) and (max-height: 800px){
+    .curr-tag{
+        .tag-box{
+            margin: 90px 0 0 17vw;
+        }
     }
 }

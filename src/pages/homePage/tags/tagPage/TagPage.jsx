@@ -19,42 +19,31 @@ export const TagPage = () => {
 
     const navigate = useNavigate()
 
-    const data = [
-        {email:"dolores.chambers@example.com", firstname:"Test Corp", lastname:"Yonkers", addresses:"NY"},
-        {email:"curtis.weaver@example.com", firstname:"Test Corp", lastname:"ccccc", addresses:"NY"},
-        {email:"jackson.graham@example.com", firstname:"Test Corp", lastname:"12222", addresses:"KZ"},
-        {email:"sara.cruz@example.com", firstname:"Test Corp", lastname:"ggg", addresses:"UA"},
-        {email:"felicia.reid@example.com", firstname:"Test Corp", lastname:"Yonkedgffrs", addresses:"BL"},
-        {email:"deanna.curtis@example.com", firstname:"Test Corp", lastname:"f", addresses:"NY"},
-        {email:"michelle.rivera@example.com ", firstname:"Test Corp", lastname:"qqqqqqqq", addresses:"NY"},
-        {email:"debbie.baker@example.com", firstname:"Test Corp", lastname:"ssssssssss", addresses:"US"},
-        {email:"jesasdqwesica.non@example.com", firstname:"Test Corp", lastname:"Yondkers", addresses:"UK"},
-        {email:"jessica.hanson@example.com", firstname:"Test Corp", lastname:"Yonkers", addresses:"MS"},
-        {email:"deanna.csdaurtis@example.com", firstname:"Test Corp", lastname:"Yonkddders", addresses:"MX"},
+    let data = [
+        {checkbox:'false', email:"dolores.chambers@example.com", firstName:"Test Corp", lastName:"Yonkers", addresses:"NY"},
+        {checkbox:'false', email:"curtis.weaver@example.com", firstName:"Test Corp", lastName:"ccccc", addresses:"NY"},
+        {checkbox:'false',email:"jackson.graham@example.com", firstName:"Test Corp", lastName:"12222", addresses:"KZ"},
+        {checkbox:'false',email:"sara.cruz@example.com", firstName:"Test Corp", lastName:"ggg", addresses:"UA"},
+        {checkbox:'false',email:"felicia.reid@example.com", firstName:"Test Corp", lastName:"Yonkedgffrs", addresses:"BL"},
+        {checkbox:'false',email:"deanna.curtis@example.com", firstName:"Test Corp", lastName:"f", addresses:"NY"},
+        {checkbox:'false',email:"michelle.rivera@example.com ", firstName:"Test Corp", lastName:"qqqqqqqq", addresses:"NY"},
+        {checkbox:'false',email:"debbie.baker@example.com", firstName:"Test Corp", lastName:"ssssssssss", addresses:"US"},
+        {checkbox:'false',email:"jesasdqwesica.non@example.com", firstName:"Test Corp", lastName:"Yondkers", addresses:"UK"},
+        {checkbox:'false',email:"jessica.hanson@example.com", firstName:"Test Corp", lastName:"Yonkers", addresses:"MS"},
+        {checkbox:'false',email:"deanna.csdaurtis@example.com", firstName:"Test Corp", lastName:"Yonkddders", addresses:"MX"},
     ];
 
     let dataArr = data.map((item, i) =>
         [item.email, item.firstname, item.lastname, item.addresses],
     )
     if(searchRow){
-        dataArr = dataArr.filter(currentArr => {
+            data = data.filter(currentArr => {
+            console.log(currentArr, "currentArr")
             return(
-                currentArr.some(arr => arr.toLowerCase().includes(searchRow.toLowerCase()))
+                Object.values(currentArr).some(arr => arr.toLowerCase().includes(searchRow.toLowerCase()))
             )
         })
     }
-
-    /*
-    *
-    * if(searchRow){
-        dataArr = dataArr.filter(rows => {
-            console.log(rows, "rows")
-            return(
-                rows.includes(searchRow.toLowerCase())
-            )
-        })
-    }
-    * */
 
     const handleChangeFields = (newColumns) => {
         setVisibleCol(newColumns)
@@ -93,7 +82,7 @@ export const TagPage = () => {
         }
          */
         return(
-            <UsersTable columns={visibleCol} data={dataArr}/>
+            <UsersTable columns={visibleCol} data={data}/>
         )
     }
 
@@ -113,7 +102,7 @@ export const TagPage = () => {
                     <div className="btns">
                         <button className='back' onClick={handleClick}>
                             <span>Add contacts</span>
-                            <img src={isClicked ? arrowUp: arrow} alt="greenArrow"/>
+                            <img src={isClicked ? arrowUp : arrow} alt="greenArrow"/>
                         </button>
                         <button className='back'>
                             <span>Create new campaign</span>

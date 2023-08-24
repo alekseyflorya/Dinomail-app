@@ -1,6 +1,8 @@
+
 export const fieldList = {
     email: "email",
     firstName: "firstName",
+    checkbox:"checkbox",
     lastName: "lastName",
     addresses: "addresses",
     company: "company",
@@ -13,8 +15,9 @@ export const fieldList = {
 }
 
 export const permanentFields = {
+    checkbox:"checkbox",
     email: "email",
-    firstName: "firstName",
-    lastName: "lastName",
+    firstName: "firstname",
+    lastName: "lastname",
     addresses: "addresses",
 }
