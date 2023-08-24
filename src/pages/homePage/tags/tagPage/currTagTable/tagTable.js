@@ -78,7 +78,6 @@ export const UsersTable = ({columns, data}) => {
         // },
     }
 
-
     return(
         <MUIDataTable
             className={'container'}
