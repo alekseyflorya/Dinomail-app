@@ -1,10 +1,81 @@
 .MuiPaper-root{
   overflow-x: hidden;
   box-shadow: none;
+  margin-left: 2.5%;
+  margin-left: 0;
 }
 .MuiTooltip-popper{
   display: none!important;
 }
+.custom-header-checkbox{
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  top:12%;
+  left:13%;
+  height: 16px;
+  background-color: white;
+  border: 2px solid #7E9D00;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.2s, border-color 0.2s;
+  &:checked {
+    background-color: #7E9D00; // Change to your desired background color
+    border: 2px solid #7E9D00; // Change to your desired border color
+  }
+  // Custom checkbox indicator (default checkmark)
+  &::after {
+    content: '\-'; // Checkmark symbol
+    font-size: 22px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+  }
+
+  &:checked::after {
+    display: block;
+  }
+}
+.custom-checkbox,{
+  // Hide the default checkbox appearance
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border: 2px solid #7E9D00;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.2s, border-color 0.2s;
+  &:checked {
+    background-color: #7E9D00; // Change to your desired background color
+    border: 2px solid #7E9D00; // Change to your desired border color
+  }
+  // Custom checkbox indicator (default checkmark)
+  &::after {
+    content: '';
+    width: 3px;
+    height: 6px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    display: none;
+  }
+
+  &:checked::after {
+    display: block;
+  }
+}
+
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation4.tss-11quiee-MUIDataTable-paper.tss-1x5mjc5-MUIDataTable-root.container.css-11mde6h-MuiPaper-root{
   /*parent table block*/
   box-shadow: none;
@@ -13,16 +84,24 @@
       div{
         div{
           margin-top: 7px;
-          height: 3%;
+          height: 4%;
           border:none;
           border-left: 0.1px solid rgba(224, 224, 224, 1);
           border-right: 0.1px solid rgba(224, 224, 224, 1);
         }
       }
     }
+    button{
+      div{
+        div{
+          height: 10px;
+        }
+      }
+    }
     .MuiTable-root{
       .MuiTableHead-root{
         .MuiTableRow-root{
+          position: relative;
           .MuiTableCell-root{
             padding: 0 0 0 1px;
             span{
@@ -38,10 +117,10 @@
                   font-size: 1rem;
                   color: #7E9D00;
                 }
-                input[type=checkbox]:checked {
-                  background-color: #9b59b6 !important;
-                  color: #ffffff !important;
-                }
+                //input[type=checkbox]:checked {
+                //  background-color: #9b59b6 !important;
+                //  color: #ffffff !important;
+                //}
               }
               span:hover{
                 background: transparent;
@@ -63,6 +142,18 @@
               }
             }
           }
+          .MuiTableCell-root{
+            padding: 0 0 0 1px;
+            span{
+              button{
+                div{
+                  div{
+                    height: 10px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
       .MuiTableBody-root{
@@ -74,14 +165,6 @@
           td{
             display: table-cell;
             vertical-align: inherit;
-            div{
-              span{
-                input[type=checkbox]:checked {
-                  background-color: #9b59b6 !important;
-                  color: #ffffff !important;
-                }
-              }
-            }
           }
         }
         .MuiTableRow-root{
@@ -91,7 +174,7 @@
           .img-box{
             position: absolute;
             margin-top: 0.8%;
-            z-index: 222;
+            z-index: 222!important;
             img{
               width: 24px;
               height: 24px;

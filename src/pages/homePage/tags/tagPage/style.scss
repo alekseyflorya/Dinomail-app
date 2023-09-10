@@ -2,6 +2,9 @@
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
     .header{
         width: 100%;
         left: 0;
@@ -153,6 +156,7 @@
                             background: rgba(42, 43, 59, 0.05);
                             border-radius: 10px;
                             border: none;
+                            outline-color: #7E9D00;
                         }::placeholder{
                             display: flex;
                             margin: 10px 0 0 0;
@@ -172,7 +176,136 @@
                     }
             }
         }
-        
+    }
+    .bottom-modal{
+        box-sizing: border-box;
+        display: flex;
+        width: 205px;
+        border: 1px solid rgba(42, 43, 59, 0.20);
+        border-radius: 10px;
+        z-index: 2;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        position: absolute;
+        bottom: 75px;
+        right: 147px;
+        transition: background-color 0.5s, border-color 0.5s;
+        .change-tag-container{
+            display: flex;
+            align-items: center;
+            cursor: default;
+            input{
+                width: 16px;
+                height: 16px;
+            }
+            div{
+                margin-left: 10px;
+                font-size: 12px;
+            }
+        }
+    }
+    .bottom-modal-hidden{
+        display: none;
+    }
+    .bottom-bar-hidden{
+        display: none;
+    }
+    .bottom-bar{
+        display: flex;
+        border-top: 1px solid #E8E8E8;
+        background: #FFF;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 147px 20px 20vw;
+        height: 80px;
+        box-sizing:border-box;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        .change-tag{
+            cursor:pointer;
+            justify-content:center;
+            width:205px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: 1.5px solid var(--Green, #7E9D00);
+            border-radius: 10px;
+            background: transparent;
+            font-family: MacPawFixelMedium;
+            font-size: 14px;
+            img{
+                margin-left: 10px;
+            }
+        }
+    }
+    .modal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 22222;
+        overflow: visible;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right:0;
+        background: rgba(0, 0, 0, 0.80);
+        backdrop-filter: blur(20px);
+        opacity: 0;
+        transform: scale(0.9);
+        .modal-content{
+            max-width: 373px;
+            background: #fff;
+            border-radius: 20px;
+            gap:20px;
+            padding: 20px;
+            box-sizing: border-box;
+            p{
+                color: var(--Dino_Dark, #2A2B3B);
+                font-family: MacPawFixelBold;
+                font-size: 20px;
+                line-height: 130%; /* 26px */
+            }
+            .btn-box{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                .cancel-btn{
+                    background: transparent;
+                    border: 1.5px solid var(--Green, #7E9D00);
+                }
+                .delete-btn{
+                    border: none;
+                    background: var(--Dino_Red, #FF5656);
+                    div{
+                        color: #FFF;
+                    }
+                }
+                button{
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    box-sizing: border-box;
+                    height: 44px;
+                    width: 161.5px;
+                    cursor: pointer;
+                    div{
+                        font-family: MacPawFixelMedium;
+                    }
+                }
+            }
+        }
+    }
+    .modal.open {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .modal-hide{
+        display: none;
     }
 }
 

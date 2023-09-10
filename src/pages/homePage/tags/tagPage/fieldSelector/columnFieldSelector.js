@@ -14,7 +14,6 @@ export const ColumnFieldSelector = ({selectedFields, handleChangeFields}) => {
     const handleChangeSearch = (e) => {
         setSearchInput(e.target.value)
     }
-
     const handleToggleCheckbox = (value) => {
         if(visibleFields.includes(value)){
             setVisibleFields(visibleFields.filter(item => {
@@ -25,19 +24,16 @@ export const ColumnFieldSelector = ({selectedFields, handleChangeFields}) => {
             setVisibleFields( prev => [...prev, value])
         }
     }
-
     const handleApply = () => {
         handleChangeFields(visibleFields)
+        console.log(visibleFields, "hadleChange visible fields")
         setIsOpen(false)
     }
-
     const handleResetOptions = () => {
         setVisibleFields(selectedFields)
     }
-
     const renderOptions = () => {
         let hiddenOptions = difference(Object.keys(fieldList), visibleFields)
-        console.log(hiddenOptions, "hiddenOptions")
         let visibleOptions = difference(Object.keys(fieldList), hiddenOptions)
         if(searchInput){
             hiddenOptions = hiddenOptions.filter(row => {
@@ -60,6 +56,7 @@ export const ColumnFieldSelector = ({selectedFields, handleChangeFields}) => {
                                             checked={true}
                                             onChange={() => handleToggleCheckbox(item)}
                                             disabled={!!permanentFields[item]}
+                                            className={'custom-modal-checkbox'}
                                         />
                                         <span>{item}</span>
                                     </label>
@@ -78,6 +75,7 @@ export const ColumnFieldSelector = ({selectedFields, handleChangeFields}) => {
                                             onChange={() => handleToggleCheckbox(item)}
                                             type={"checkbox"}
                                             checked={false}
+                                            className={'custom-modal-checkbox'}
                                         />
                                         <span>{item}</span>
                                     </label>
@@ -93,12 +91,11 @@ export const ColumnFieldSelector = ({selectedFields, handleChangeFields}) => {
     const toggleModal = () => {
         setIsOpen((isOpenState) => !isOpenState)
     }
-
     return(
         <div className={'table-modal'}>
             <img src={tuning} alt="tag-tune" className="tune" onClick={toggleModal}/>
             <div className={'modal-container'}>
-                <div className={isOpen ? 'modal': 'modal-hide'}>
+                <div className={isOpen ? 'filter-modal': 'filter-modal-hide'}>
                     <div className={'search-box'}>
                         <input
                             value={searchInput}

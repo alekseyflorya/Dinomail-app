@@ -12,7 +12,7 @@ import { Segmentation } from './pages/homePage/audience/segmentation/Segmentatio
 import { UploadManually } from './pages/homePage/audience/uploadManually/ManualUpload';
 import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
 import { Tags } from './pages/homePage/tags/tags';
-import { TagPage } from './pages/homePage/tags/tagPage/TagPage';
+import { TagPage } from './pages/homePage/tags/tagPage/tagPage';
 import { Campaign } from '@mui/icons-material';
 import { Campaigns } from './pages/homePage/campaigns/campaigns';
 
